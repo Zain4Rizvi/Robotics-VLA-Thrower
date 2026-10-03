@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 720" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1180" height="720" fill="#f7f5f0"/>
+  <text x="32" y="36" font-size="20" font-weight="700" fill="#1c1917">SmolVLA, as this repo loads it</text>
+  <text x="32" y="58" font-size="13" fill="#57534e">Two transformers. The vision-language model reads the scene once. The action expert walks noise toward a chunk of joint targets.</text>
+
+  <!-- inputs -->
+  <g>
+    <rect x="32" y="88" width="150" height="64" rx="8" fill="#fff" stroke="#44403c"/>
+    <text x="107" y="112" text-anchor="middle" font-size="13" font-weight="600">front camera</text>
+    <text x="107" y="132" text-anchor="middle" font-size="12" fill="#57534e">256×256×3 ’ 512×512</text>
+    <rect x="32" y="164" width="150" height="64" rx="8" fill="#fff" stroke="#44403c"/>
+    <text x="107" y="188" text-anchor="middle" font-size="13" font-weight="600">wrist camera</text>
+    <text x="107" y="208" text-anchor="middle" font-size="12" fill="#57534e">same resize</text>
+    <rect x="32" y="240" width="150" height="64" rx="8" fill="#fff" stroke="#44403c"/>
+    <text x="107" y="264" text-anchor="middle" font-size="13" font-weight="600">sentence</text>
+    <text x="107" y="284" text-anchor="middle" font-size="12" fill="#57534e">d 48 tokens</text>
+    <rect x="32" y="316" width="150" height="64" rx="8" fill="#fff" stroke="#44403c"/>
+    <text x="107" y="340" text-anchor="middle" font-size="13" font-weight="600">state</text>
+    <text x="107" y="360" text-anchor="middle" font-size="12" fill="#57534e">15 ’ pad 32</text>
+  </g>
+
+  <!-- vision -->
+  <g>
+    <rect x="230" y="88" width="200" height="140" rx="8" fill="#dbeafe" stroke="#1d4ed8"/>
+    <text x="330" y="114" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">SigLIP vision</text>
+    <text x="330" y="136" text-anchor="middle" font-size="12" fill="#1e3a8a">patch 16 ’ 32×32 = 1024</text>
+    <text x="330" y="154" text-anchor="middle" font-size="12" fill="#1e3a8a">12 layers, width 768</text>
+    <text x="330" y="172" text-anchor="middle" font-size="12" fill="#1e3a8a">12 heads × 64</text>
+    <text x="330" y="190" text-anchor="middle" font-size="12" fill="#1e3a8a">MLP 768 ’ 3072 ’ 768</text>
+    <text x="330" y="212" text-anchor="middle" font-size="12" fill="#1e3a8a">runs once per camera</text>
+    <rect x="230" y="244" width="200" height="84" rx="8" fill="#e0e7ff" stroke="#4338ca"/>
+    <text x="330" y="270" text-anchor="middle" font-size="14" font-weight="700" fill="#312e81">connector</text>
+    <text x="330" y="290" text-anchor="middle" font-size="12" fill="#312e81">pixel-shuffle ×4</text>
+    <text x="330" y="308" text-anchor="middle" font-size="12" fill="#312e81">1024×768 ’ 64×12288 ’ 64×960</text>
+  </g>
+
+  <!-- prefix tape -->
+  <g>
+    <rect x="478" y="88" width="250" height="240" rx="8" fill="#fef3c7" stroke="#b45309"/>
+    <text x="603" y="114" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">prefix tape, width 960</text>
+    <text x="603" y="140" text-anchor="middle" font-size="12" fill="#78350f">64 front tokens</text>
+    <text x="603" y="158" text-anchor="middle" font-size="12" fill="#78350f">64 wrist tokens</text>
+    <text x="603" y="176" text-anchor="middle" font-size="12" fill="#78350f">+ sentence tokens</text>
+    <text x="603" y="194" text-anchor="middle" font-size="12" fill="#78350f">+ 1 state token</text>
+    <text x="603" y="220" text-anchor="middle" font-size="12" fill="#78350f">images and words see each other</text>
+    <text x="603" y="238" text-anchor="middle" font-size="12" fill="#78350f">they do not see the state token</text>
+    <text x="603" y="256" text-anchor="middle" font-size="12" fill="#78350f">nobody here sees the actions</text>
+    <text x="603" y="286" text-anchor="middle" font-size="12" font-weight="600" fill="#78350f">16 text layers, not 32</text>
+    <text x="603" y="306" text-anchor="middle" font-size="12" fill="#78350f">KV cache saved at every layer</text>
+  </g>
+
+  <!-- expert -->
+  <g>
+    <rect x="776" y="88" width="240" height="240" rx="8" fill="#dcfce7" stroke="#15803d"/>
+    <text x="896" y="114" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">action expert, width 720</text>
+    <text x="896" y="140" text-anchor="middle" font-size="12" fill="#14532d">50 noisy action tokens</text>
+    <text x="896" y="158" text-anchor="middle" font-size="12" fill="#14532d">each is 32-D, padded from 8</text>
+    <text x="896" y="184" text-anchor="middle" font-size="12" fill="#14532d">even layers: self-attention</text>
+    <text x="896" y="202" text-anchor="middle" font-size="12" fill="#14532d">odd layers: cross-attend to</text>
+    <text x="896" y="220" text-anchor="middle" font-size="12" fill="#14532d">that layer's cached prefix</text>
+    <text x="896" y="246" text-anchor="middle" font-size="12" fill="#14532d">Q 720’960 (15×64)</text>
+    <text x="896" y="264" text-anchor="middle" font-size="12" fill="#14532d">KV 5×64, MLP 720’2048’720</text>
+    <text x="896" y="290" text-anchor="middle" font-size="12" font-weight="600" fill="#14532d">10 Euler steps, then project</text>
+    <text x="896" y="308" text-anchor="middle" font-size="12" fill="#14532d">720 ’ 32 ’ keep first 8</text>
+  </g>
+
+  <!-- arrows -->
+  <path d="M182 120 H230" stroke="#44403c" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M182 196 H210 V158 H230" stroke="#44403c" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M430 158 H478" stroke="#44403c" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M182 272 H250 V286 H478" stroke="#44403c" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M182 348 H400 V200 H478" stroke="#44403c" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M728 200 H776" stroke="#15803d" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrG)"/>
+  <text x="752" y="190" text-anchor="middle" font-size="11" fill="#15803d">KV</text>
+
+  <!-- output -->
+  <rect x="776" y="360" width="240" height="72" rx="8" fill="#fff" stroke="#15803d"/>
+  <text x="896" y="388" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">chunk (50, 8)</text>
+  <text x="896" y="410" text-anchor="middle" font-size="12" fill="#14532d">this repo plays 16, replans every 8</text>
+  <path d="M896 328 V360" stroke="#15803d" stroke-width="1.5" marker-end="url(#arrG)"/>
+
+  <!-- one block callout -->
+  <rect x="32" y="460" width="1048" height="220" rx="8" fill="#fff" stroke="#d6d3d1"/>
+  <text x="52" y="488" font-size="14" font-weight="700" fill="#1c1917">One block, both stacks. Pre-norm, residual, then the MLP.</text>
+  <text x="52" y="516" font-size="13" fill="#44403c">VLM text layer (×16 of the original 32). Input (S, 960).</text>
+  <text x="52" y="538" font-size="13" fill="#44403c">RMSNorm ’ Q (960’960, 15 heads) and KV (960’320, 5 heads, repeated ×3) ’ scores / 64 ’ out-proj 960 ’ add back.</text>
+  <text x="52" y="560" font-size="13" fill="#44403c">RMSNorm ’ SwiGLU 960’2560’960 ’ add back. Layers 1631 of SmolVLM2 are loaded and then deleted.</text>
+  <text x="52" y="592" font-size="13" fill="#44403c">Expert layer (×16). Input (50, 720). Same skeleton, narrower.</text>
+  <text x="52" y="614" font-size="13" fill="#44403c">Even index: self-attention. Q 720’960, KV 720’320. Actions are causal: token i sees the prefix and actions 0&i.</text>
+  <text x="52" y="636" font-size="13" fill="#44403c">Odd index: cross-attention. Q still comes from the action token. K and V are the cached VLM vectors at this same layer, projected 320’320.</text>
+  <text x="52" y="658" font-size="13" fill="#44403c">MLP 720’2048’720. After 10 denoising passes, a linear map 720’32 throws away the 24 pad dims and leaves the 8 OpenArm targets.</text>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#44403c"/>
+    </marker>
+    <marker id="arrG" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#15803d"/>
+    </marker>
+  </defs>
+</svg>
