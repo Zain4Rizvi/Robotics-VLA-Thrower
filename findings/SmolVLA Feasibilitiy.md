@@ -1,8 +1,8 @@
-# Is a VLA fine-tune feasible?
+# Is a  SmolVLA fine-tune feasible?
 
 Status: done
 
-This reads the throw reports in `findings/` and the peg-socket reports in `peg_socket/findings/`. No new training run, no new rollout.
+This reads the throw reports in `findings/` and the peg-socket record in `peg_socket/REPORT.md`. No new training run, no new rollout.
 
 ## Result
 
@@ -48,11 +48,11 @@ One peg, one socket, one sentence. That removes the color choice and leaves a 6 
 
 | Run | Demos | Inserted | Grasps | Closest |
 |---|---|---|---|---|
-| [expert](../../peg_socket/findings/expert/REPORT.md) | script | 18/20 | 18/20 | 0.2–1.9 mm on successes |
-| [zero-shot](../../peg_socket/findings/zeroshot/REPORT.md) | 0 | 0/20 | 0/20 | 4.8 cm best, 10.6 cm median |
-| [face probe](../../peg_socket/findings/face_probe/REPORT.md) | 10 | 0/5 at steps 500, 1000, and 1500 | 0/5 | 4.2 cm best, 6.7 cm median at the best loss |
-| [chunk playback](../../peg_socket/findings/chunk_playback/REPORT.md) | same weights | 0/5 on exec 8, 16, and 50 | 0/5 | 4.0 / 6.5 / 6.9 cm best |
-| [localize](../../peg_socket/findings/localize/REPORT.md) | — | not measured | — | gate is 1 cm median |
+| [expert](../peg_socket/REPORT.md#expert) | script | 18/20 | 18/20 | 0.2–1.9 mm on successes |
+| [zero-shot](../peg_socket/REPORT.md#zero-shot) | 0 | 0/20 | 0/20 | 4.8 cm best, 10.6 cm median |
+| [face probe](../peg_socket/REPORT.md#face-camera) | 10 | 0/5 at steps 500, 1000, and 1500 | 0/5 | 4.2 cm best, 6.7 cm median at the best loss |
+| [chunk playback](../peg_socket/REPORT.md#chunk-playback) | same weights | 0/5 on exec 8, 16, and 50 | 0/5 | 4.0 / 6.5 / 6.9 cm best |
+| [localize](../peg_socket/REPORT.md#localize) | — | not measured | — | gate is 1 cm median |
 
 The face-camera run is the only peg policy that was trained. `tablecam` looks down from between the shoulders, so the peg, the hole, and the gripper are in one frame. Validation loss fell from 0.409 at step 250 to 0.151 at step 1500 and was still falling. The hand did not get closer. Step 1000 and step 1500 are farther from the peg, in the median, than step 500.
 
@@ -69,10 +69,10 @@ The action expert copies the demonstration. Seeing the object does not follow fr
 A localizer that beats the centimeter gate on held-out frames, scored before any action head is trained.
 
 - Ball: under 5 cm. Best held-out number is 9.0 cm, tied with ignoring the image.
-- Peg: median under 1 cm, and the point on the peg in most frames. Not measured. Do not start step 6 until `peg_socket/findings/localize/REPORT.md` says pass.
+- Peg: median under 1 cm, and the point on the peg in most frames. Not measured. Do not start step 6 until [localize](../peg_socket/REPORT.md#localize) says pass.
 
 ## Sources
 
 Throw: `findings/expert/REPORT.md`, `findings/overfit10/REPORT.md`, `findings/stageA/REPORT.md`, `findings/headcam/REPORT.md`, `findings/headcam_vision/REPORT.md`, `findings/vision_xy/REPORT.md`, `findings/probes/REPORT.md`.
 
-Peg: `peg_socket/findings/expert/REPORT.md`, `peg_socket/findings/zeroshot/REPORT.md`, `peg_socket/findings/face_probe/REPORT.md`, `peg_socket/findings/chunk_playback/REPORT.md`, `peg_socket/findings/localize/REPORT.md`, `peg_socket/README.md`.
+Peg: `peg_socket/REPORT.md`.

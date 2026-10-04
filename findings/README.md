@@ -32,7 +32,7 @@ Training stopped on its own when validation loss failed to improve by more than 
 | [headcam_vision](headcam_vision/REPORT.md) | SigLIP unfrozen, language model still frozen | no robot eval; validation loss stayed worse than the frozen run |
 | [vision_xy](vision_xy/REPORT.md) | SigLIP trained to predict the ball's xy, arm not trained | no robot eval; grid readout and the fine-tune both miss by 9.0 cm, gate was 5 cm. SmolVLM2, asked to point, misses by 170.5 and 67.6 pixels, 0/20 on the ball |
 | [probes](probes/REPORT.md) | no new weights | frozen vision cannot find the ball; the sentence does not steer the arm |
-| [feasibility](feasibility/REPORT.md) | no new run; reads these reports and `peg_socket/findings/` | SmolVLA fine-tune is not feasible on either task. Hands stop 4–11 cm short |
+| [feasibility](<SmolVLA Feasibilitiy.md>) | no new run; reads these reports and [peg_socket/REPORT.md](../peg_socket/REPORT.md) | SmolVLA fine-tune is not feasible on either task. Hands stop 4–11 cm short |
 
 The 10-demo run is the closest reach that was measured. More demos, a new camera, and unfreezing the vision tower did not produce a policy that throws. Training SigLIP to name the ball's position, in [vision_xy](vision_xy/REPORT.md), missed by 9.2 cm with an averaged readout and by 9.0 cm when the 8×8 grid was kept. Both sit on the color-only guess.
 

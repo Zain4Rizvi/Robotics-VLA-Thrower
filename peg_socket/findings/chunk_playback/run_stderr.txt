@@ -1,8 +1,0 @@
-Reconstructed. The PowerShell redirect stored this stream as UTF-16 and a later re-encode destroyed the bytes. There was no traceback and no CUDA error. Each of the three playbacks printed the same warnings while loading weights from the local checkpoint:
-
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-`torch_dtype` is deprecated! Use `dtype` instead!
-Loading weights: 100%|##########| 489/489
-
-PowerShell wrapped each of those as a NativeCommandError because the text was on stderr.
