@@ -1,0 +1,361 @@
+{
+  "checkpoint": "lerobot/smolvla_base",
+  "instruction": "place the peg in the hole",
+  "n": 20,
+  "insertions": 0,
+  "grasp_count": 0,
+  "min_hand_to_peg_m": 0.04782093884098865,
+  "median_episode_min_hand_to_peg_m": 0.1057739570414589,
+  "seed": 0,
+  "rejected_draws": 12,
+  "rejected_by": {
+    "too_close": 4,
+    "gripper": 4,
+    "contact": 4
+  },
+  "bounds": {
+    "sample_x": [
+      0.2,
+      0.5
+    ],
+    "sample_y": [
+      -0.46,
+      0.02
+    ],
+    "table_center_xy": [
+      0.47,
+      0.0
+    ],
+    "table_half_extents_xy": [
+      0.41,
+      0.55
+    ],
+    "peg_z": 0.445,
+    "socket_z": 0.4,
+    "peg_radius_m": 0.014,
+    "socket_outer_radius_m": 0.03,
+    "min_peg_socket_m": 0.12,
+    "home_gripper": "reject a draw if the peg or socket contacts any geom except table_top",
+    "pedestal_margin_m": 0.005,
+    "pedestal_xy_aabb": [
+      -0.15524375354396425,
+      -0.09500000000000028,
+      0.11848299354552097,
+      0.09500000000000025
+    ],
+    "camera": "tablecam",
+    "pixel_margin": 16,
+    "image_size": 256,
+    "insert_radius_m": 0.006,
+    "insert_dz_m": [
+      0.0,
+      0.05
+    ],
+    "hold_s": 0.5,
+    "max_steps": 400,
+    "chunk": 16,
+    "replan_every": 8
+  },
+  "episodes": [
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.15317539137189184,
+      "steps": 400,
+      "peg_xy": [
+        0.3910885061964363,
+        -0.33050237739334226
+      ],
+      "socket_xy": [
+        0.21229205718085842,
+        -0.45206673494630606
+      ],
+      "i": 0
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.11298164881711509,
+      "steps": 400,
+      "peg_xy": [
+        0.36308749743962687,
+        -0.01116523658187124
+      ],
+      "socket_xy": [
+        0.44475606623645964,
+        -0.45868551991832895
+      ],
+      "i": 1
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.10748568727482355,
+      "steps": 400,
+      "peg_xy": [
+        0.45895367670496595,
+        -0.20009861428043596
+      ],
+      "socket_xy": [
+        0.2899135671612154,
+        -0.25711013382512393
+      ],
+      "i": 2
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.05025881412063768,
+      "steps": 400,
+      "peg_xy": [
+        0.38461553344437616,
+        -0.27583477395429595
+      ],
+      "socket_xy": [
+        0.4991629807367633,
+        0.010800962612590448
+      ],
+      "i": 3
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.05174937080342202,
+      "steps": 400,
+      "peg_xy": [
+        0.40566259534420845,
+        -0.14777954739144816
+      ],
+      "socket_xy": [
+        0.40653401917128207,
+        -0.2733177164900302
+      ],
+      "i": 4
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.10406222680809424,
+      "steps": 400,
+      "peg_xy": [
+        0.24052895150672338,
+        -0.11368559670684075
+      ],
+      "socket_xy": [
+        0.35760629674271777,
+        -0.31108389973170125
+      ],
+      "i": 5
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.0979302709833202,
+      "steps": 400,
+      "peg_xy": [
+        0.3457506076495367,
+        -0.03304583951247986
+      ],
+      "socket_xy": [
+        0.4802130547868749,
+        -0.28825830557964627
+      ],
+      "i": 6
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.17404934015886558,
+      "steps": 400,
+      "peg_xy": [
+        0.22520460307471546,
+        -0.06033080912636907
+      ],
+      "socket_xy": [
+        0.436129492246605,
+        -0.34510266736338296
+      ],
+      "i": 7
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.23068125615479299,
+      "steps": 400,
+      "peg_xy": [
+        0.46294526924321117,
+        -0.43188734329350675
+      ],
+      "socket_xy": [
+        0.3008351181636981,
+        -0.3878658558904773
+      ],
+      "i": 8
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.08770192881076863,
+      "steps": 400,
+      "peg_xy": [
+        0.3351018099947861,
+        -0.07776435026209877
+      ],
+      "socket_xy": [
+        0.26919266269812425,
+        -0.4350297754890834
+      ],
+      "i": 9
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.05226135024725116,
+      "steps": 400,
+      "peg_xy": [
+        0.3095330504734486,
+        -0.40936226580628987
+      ],
+      "socket_xy": [
+        0.38873244546191277,
+        -0.014965814527423627
+      ],
+      "i": 10
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.08423837550581202,
+      "steps": 400,
+      "peg_xy": [
+        0.3321131464147352,
+        -0.0017965630284461076
+      ],
+      "socket_xy": [
+        0.3499687441062941,
+        -0.25589026007244375
+      ],
+      "i": 11
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.16868490104659817,
+      "steps": 400,
+      "peg_xy": [
+        0.38606403560461333,
+        0.017646322512955614
+      ],
+      "socket_xy": [
+        0.4846831024813296,
+        -0.2391783331316339
+      ],
+      "i": 12
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.06412267033098883,
+      "steps": 400,
+      "peg_xy": [
+        0.42731865359248744,
+        -0.2212371061659429
+      ],
+      "socket_xy": [
+        0.35879364805903113,
+        -0.0828228636573724
+      ],
+      "i": 13
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.18064425534777068,
+      "steps": 400,
+      "peg_xy": [
+        0.2044118914896108,
+        -0.04545275668212362
+      ],
+      "socket_xy": [
+        0.4943585120199033,
+        -0.0005391137867374884
+      ],
+      "i": 14
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.20464434927388964,
+      "steps": 400,
+      "peg_xy": [
+        0.24462920366974938,
+        0.006861830635018384
+      ],
+      "socket_xy": [
+        0.4669806667161562,
+        -0.06526056277932618
+      ],
+      "i": 15
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.14473334076644656,
+      "steps": 400,
+      "peg_xy": [
+        0.34399637714234965,
+        -0.3484609985731342
+      ],
+      "socket_xy": [
+        0.4405641736154924,
+        -0.0167055233039346
+      ],
+      "i": 16
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.1958347666990083,
+      "steps": 400,
+      "peg_xy": [
+        0.41576593184802213,
+        -0.45232396982868545
+      ],
+      "socket_xy": [
+        0.42738530070692843,
+        -0.21387581283420254
+      ],
+      "i": 17
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.10389083719962262,
+      "steps": 400,
+      "peg_xy": [
+        0.3032929936412376,
+        -0.25345660866504005
+      ],
+      "socket_xy": [
+        0.48981862423522105,
+        -0.19012871573034063
+      ],
+      "i": 18
+    },
+    {
+      "failure": "never_grasped",
+      "grasped": false,
+      "min_hand_to_peg_m": 0.04782093884098865,
+      "steps": 400,
+      "peg_xy": [
+        0.2776593779512797,
+        -0.3439956572347144
+      ],
+      "socket_xy": [
+        0.46643549619775393,
+        -0.3515826743596843
+      ],
+      "i": 19
+    }
+  ]
+}

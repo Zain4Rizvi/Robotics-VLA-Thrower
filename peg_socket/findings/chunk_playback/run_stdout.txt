@@ -1,0 +1,230 @@
+start 2026-10-04T09:38:55.6905830-04:00
+CMD python peg_socket/chunk_playback.py --keep 16 --execute 8 --out peg_socket/findings/chunk_playback/exec8
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+checkpoint=checkpoints/peg_face_probe/best/pretrained_model dtype=torch.float32 keep=16 execute=8 max_steps=900
+seed=30003 peg=[ 0.3416 -0.2522] socket=[ 0.1882 -0.3754]
+predict_s=0.73 action_shape=(16, 8) dtype=float32
+  step=80 min_d=0.0969 grasped=0
+  step=160 min_d=0.0765 grasped=0
+  step=240 min_d=0.0765 grasped=0
+  step=320 min_d=0.0765 grasped=0
+  step=400 min_d=0.0765 grasped=0
+  step=480 min_d=0.0765 grasped=0
+  step=560 min_d=0.0765 grasped=0
+  step=640 min_d=0.0765 grasped=0
+  step=720 min_d=0.0765 grasped=0
+  step=800 min_d=0.0765 grasped=0
+  step=880 min_d=0.0765 grasped=0
+seed=30003 failure=never_grasped grasped=0 min_d=0.0765 steps=900 median_inside=0.1105 median_boundary=0.427431
+seed=30006 peg=[ 0.1848 -0.3032] socket=[ 0.2498 -0.4359]
+predict_s=0.43 action_shape=(16, 8) dtype=float32
+  step=80 min_d=0.0395 grasped=0
+  step=160 min_d=0.0395 grasped=0
+  step=240 min_d=0.0395 grasped=0
+  step=320 min_d=0.0395 grasped=0
+  step=400 min_d=0.0395 grasped=0
+  step=480 min_d=0.0395 grasped=0
+  step=560 min_d=0.0395 grasped=0
+  step=640 min_d=0.0395 grasped=0
+  step=720 min_d=0.0395 grasped=0
+  step=800 min_d=0.0395 grasped=0
+  step=880 min_d=0.0395 grasped=0
+seed=30006 failure=never_grasped grasped=0 min_d=0.0395 steps=900 median_inside=0.103354 median_boundary=0.430171
+seed=30013 peg=[ 0.1898 -0.2797] socket=[ 0.201  -0.4171]
+predict_s=0.48 action_shape=(16, 8) dtype=float32
+  step=80 min_d=0.0777 grasped=0
+  step=160 min_d=0.0777 grasped=0
+  step=240 min_d=0.0777 grasped=0
+  step=320 min_d=0.0777 grasped=0
+  step=400 min_d=0.0777 grasped=0
+  step=480 min_d=0.0777 grasped=0
+  step=560 min_d=0.0777 grasped=0
+  step=640 min_d=0.0777 grasped=0
+  step=720 min_d=0.0777 grasped=0
+  step=800 min_d=0.0777 grasped=0
+  step=880 min_d=0.0777 grasped=0
+seed=30013 failure=never_grasped grasped=0 min_d=0.0777 steps=900 median_inside=0.100994 median_boundary=0.412679
+seed=30014 peg=[ 0.3469 -0.2602] socket=[ 0.2117 -0.3586]
+predict_s=0.43 action_shape=(16, 8) dtype=float32
+  step=80 min_d=0.0568 grasped=0
+  step=160 min_d=0.0568 grasped=0
+  step=240 min_d=0.0568 grasped=0
+  step=320 min_d=0.0568 grasped=0
+  step=400 min_d=0.0568 grasped=0
+  step=480 min_d=0.0568 grasped=0
+  step=560 min_d=0.0568 grasped=0
+  step=640 min_d=0.0568 grasped=0
+  step=720 min_d=0.0568 grasped=0
+  step=800 min_d=0.0568 grasped=0
+  step=880 min_d=0.0568 grasped=0
+seed=30014 failure=never_grasped grasped=0 min_d=0.0568 steps=900 median_inside=0.101853 median_boundary=0.414357
+seed=30032 peg=[ 0.2018 -0.3439] socket=[ 0.3101 -0.2617]
+predict_s=0.44 action_shape=(16, 8) dtype=float32
+  step=80 min_d=0.0891 grasped=0
+  step=160 min_d=0.0656 grasped=0
+  step=240 min_d=0.0656 grasped=0
+  step=320 min_d=0.0656 grasped=0
+  step=400 min_d=0.0656 grasped=0
+  step=480 min_d=0.0656 grasped=0
+  step=560 min_d=0.0656 grasped=0
+  step=640 min_d=0.0656 grasped=0
+  step=720 min_d=0.0656 grasped=0
+  step=800 min_d=0.0656 grasped=0
+  step=880 min_d=0.0656 grasped=0
+seed=30032 failure=never_grasped grasped=0 min_d=0.0656 steps=900 median_inside=0.111761 median_boundary=0.427448
+done n=5 insertions=0 grasp_count=0 min_hand_to_peg_m=0.0395 median_l2_inside=0.105326 median_l2_boundary=0.423595
+CMD python peg_socket/chunk_playback.py --keep 16 --execute 16 --out peg_socket/findings/chunk_playback/exec16
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+checkpoint=checkpoints/peg_face_probe/best/pretrained_model dtype=torch.float32 keep=16 execute=16 max_steps=900
+seed=30003 peg=[ 0.3416 -0.2522] socket=[ 0.1882 -0.3754]
+predict_s=0.66 action_shape=(16, 8) dtype=float32
+  step=80 min_d=0.0808 grasped=0
+  step=160 min_d=0.0808 grasped=0
+  step=240 min_d=0.0729 grasped=0
+  step=320 min_d=0.0703 grasped=0
+  step=400 min_d=0.0703 grasped=0
+  step=480 min_d=0.0703 grasped=0
+  step=560 min_d=0.0703 grasped=0
+  step=640 min_d=0.0703 grasped=0
+  step=720 min_d=0.0703 grasped=0
+  step=800 min_d=0.0703 grasped=0
+  step=880 min_d=0.0703 grasped=0
+seed=30003 failure=never_grasped grasped=0 min_d=0.0703 steps=900 median_inside=0.096256 median_boundary=0.355648
+seed=30006 peg=[ 0.1848 -0.3032] socket=[ 0.2498 -0.4359]
+predict_s=0.43 action_shape=(16, 8) dtype=float32
+  step=80 min_d=0.0709 grasped=0
+  step=160 min_d=0.0709 grasped=0
+  step=240 min_d=0.0709 grasped=0
+  step=320 min_d=0.0709 grasped=0
+  step=400 min_d=0.0709 grasped=0
+  step=480 min_d=0.0709 grasped=0
+  step=560 min_d=0.0709 grasped=0
+  step=640 min_d=0.0709 grasped=0
+  step=720 min_d=0.0709 grasped=0
+  step=800 min_d=0.0709 grasped=0
+  step=880 min_d=0.0663 grasped=0
+seed=30006 failure=never_grasped grasped=0 min_d=0.0663 steps=900 median_inside=0.093987 median_boundary=0.297658
+seed=30013 peg=[ 0.1898 -0.2797] socket=[ 0.201  -0.4171]
+predict_s=0.42 action_shape=(16, 8) dtype=float32
+  step=80 min_d=0.0905 grasped=0
+  step=160 min_d=0.0652 grasped=0
+  step=240 min_d=0.0652 grasped=0
+  step=320 min_d=0.0652 grasped=0
+  step=400 min_d=0.0652 grasped=0
+  step=480 min_d=0.0652 grasped=0
+  step=560 min_d=0.0652 grasped=0
+  step=640 min_d=0.0652 grasped=0
+  step=720 min_d=0.0652 grasped=0
+  step=800 min_d=0.0652 grasped=0
+  step=880 min_d=0.0652 grasped=0
+seed=30013 failure=never_grasped grasped=0 min_d=0.0652 steps=900 median_inside=0.081979 median_boundary=0.309829
+seed=30014 peg=[ 0.3469 -0.2602] socket=[ 0.2117 -0.3586]
+predict_s=0.44 action_shape=(16, 8) dtype=float32
+  step=80 min_d=0.0920 grasped=0
+  step=160 min_d=0.0920 grasped=0
+  step=240 min_d=0.0759 grasped=0
+  step=320 min_d=0.0759 grasped=0
+  step=400 min_d=0.0759 grasped=0
+  step=480 min_d=0.0759 grasped=0
+  step=560 min_d=0.0759 grasped=0
+  step=640 min_d=0.0759 grasped=0
+  step=720 min_d=0.0759 grasped=0
+  step=800 min_d=0.0759 grasped=0
+  step=880 min_d=0.0759 grasped=0
+seed=30014 failure=never_grasped grasped=0 min_d=0.0759 steps=900 median_inside=0.098528 median_boundary=0.355996
+seed=30032 peg=[ 0.2018 -0.3439] socket=[ 0.3101 -0.2617]
+predict_s=0.41 action_shape=(16, 8) dtype=float32
+  step=80 min_d=0.1216 grasped=0
+  step=160 min_d=0.0787 grasped=0
+  step=240 min_d=0.0787 grasped=0
+  step=320 min_d=0.0787 grasped=0
+  step=400 min_d=0.0787 grasped=0
+  step=480 min_d=0.0787 grasped=0
+  step=560 min_d=0.0787 grasped=0
+  step=640 min_d=0.0787 grasped=0
+  step=720 min_d=0.0787 grasped=0
+  step=800 min_d=0.0787 grasped=0
+  step=880 min_d=0.0787 grasped=0
+seed=30032 failure=never_grasped grasped=0 min_d=0.0787 steps=900 median_inside=0.100424 median_boundary=0.346132
+done n=5 insertions=0 grasp_count=0 min_hand_to_peg_m=0.0652 median_l2_inside=0.094435 median_l2_boundary=0.331288
+CMD python peg_socket/chunk_playback.py --keep 50 --execute 50 --out peg_socket/findings/chunk_playback/exec50
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+checkpoint=checkpoints/peg_face_probe/best/pretrained_model dtype=torch.float32 keep=50 execute=50 max_steps=900
+seed=30003 peg=[ 0.3416 -0.2522] socket=[ 0.1882 -0.3754]
+predict_s=0.80 action_shape=(50, 8) dtype=float32
+  step=80 min_d=0.0962 grasped=0
+  step=160 min_d=0.0796 grasped=0
+  step=240 min_d=0.0796 grasped=0
+  step=320 min_d=0.0796 grasped=0
+  step=400 min_d=0.0796 grasped=0
+  step=480 min_d=0.0796 grasped=0
+  step=560 min_d=0.0796 grasped=0
+  step=640 min_d=0.0796 grasped=0
+  step=720 min_d=0.0796 grasped=0
+  step=800 min_d=0.0796 grasped=0
+  step=880 min_d=0.0796 grasped=0
+seed=30003 failure=never_grasped grasped=0 min_d=0.0796 steps=900 median_inside=0.08015 median_boundary=0.329
+seed=30006 peg=[ 0.1848 -0.3032] socket=[ 0.2498 -0.4359]
+predict_s=0.43 action_shape=(50, 8) dtype=float32
+  step=80 min_d=0.0926 grasped=0
+  step=160 min_d=0.0797 grasped=0
+  step=240 min_d=0.0797 grasped=0
+  step=320 min_d=0.0797 grasped=0
+  step=400 min_d=0.0797 grasped=0
+  step=480 min_d=0.0797 grasped=0
+  step=560 min_d=0.0797 grasped=0
+  step=640 min_d=0.0764 grasped=0
+  step=720 min_d=0.0764 grasped=0
+  step=800 min_d=0.0764 grasped=0
+  step=880 min_d=0.0764 grasped=0
+seed=30006 failure=never_grasped grasped=0 min_d=0.0764 steps=900 median_inside=0.084843 median_boundary=0.318676
+seed=30013 peg=[ 0.1898 -0.2797] socket=[ 0.201  -0.4171]
+predict_s=0.42 action_shape=(50, 8) dtype=float32
+  step=80 min_d=0.0853 grasped=0
+  step=160 min_d=0.0849 grasped=0
+  step=240 min_d=0.0849 grasped=0
+  step=320 min_d=0.0849 grasped=0
+  step=400 min_d=0.0849 grasped=0
+  step=480 min_d=0.0849 grasped=0
+  step=560 min_d=0.0849 grasped=0
+  step=640 min_d=0.0849 grasped=0
+  step=720 min_d=0.0849 grasped=0
+  step=800 min_d=0.0849 grasped=0
+  step=880 min_d=0.0849 grasped=0
+seed=30013 failure=never_grasped grasped=0 min_d=0.0849 steps=900 median_inside=0.090122 median_boundary=0.307706
+seed=30014 peg=[ 0.3469 -0.2602] socket=[ 0.2117 -0.3586]
+predict_s=0.41 action_shape=(50, 8) dtype=float32
+  step=80 min_d=0.0816 grasped=0
+  step=160 min_d=0.0816 grasped=0
+  step=240 min_d=0.0816 grasped=0
+  step=320 min_d=0.0816 grasped=0
+  step=400 min_d=0.0816 grasped=0
+  step=480 min_d=0.0775 grasped=0
+  step=560 min_d=0.0775 grasped=0
+  step=640 min_d=0.0775 grasped=0
+  step=720 min_d=0.0775 grasped=0
+  step=800 min_d=0.0775 grasped=0
+  step=880 min_d=0.0775 grasped=0
+seed=30014 failure=never_grasped grasped=0 min_d=0.0775 steps=900 median_inside=0.093224 median_boundary=0.304611
+seed=30032 peg=[ 0.2018 -0.3439] socket=[ 0.3101 -0.2617]
+predict_s=0.47 action_shape=(50, 8) dtype=float32
+  step=80 min_d=0.0929 grasped=0
+  step=160 min_d=0.0686 grasped=0
+  step=240 min_d=0.0686 grasped=0
+  step=320 min_d=0.0686 grasped=0
+  step=400 min_d=0.0686 grasped=0
+  step=480 min_d=0.0686 grasped=0
+  step=560 min_d=0.0686 grasped=0
+  step=640 min_d=0.0686 grasped=0
+  step=720 min_d=0.0686 grasped=0
+  step=800 min_d=0.0686 grasped=0
+  step=880 min_d=0.0686 grasped=0
+seed=30032 failure=never_grasped grasped=0 min_d=0.0686 steps=900 median_inside=0.089284 median_boundary=0.322005
+done n=5 insertions=0 grasp_count=0 min_hand_to_peg_m=0.0686 median_l2_inside=0.08791 median_l2_boundary=0.322005
+CMD python peg_socket/chunk_playback.py --plot peg_socket/findings/chunk_playback
+wrote peg_socket/findings/chunk_playback/jumps.png peg_socket/findings/chunk_playback/trace_seed30006.png peg_socket/findings/chunk_playback/closest.png
+done 2026-10-04T09:47:42-04:00

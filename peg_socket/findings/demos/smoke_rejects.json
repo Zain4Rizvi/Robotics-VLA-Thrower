@@ -1,0 +1,29 @@
+{
+  "tag": "smoke",
+  "saved": 1,
+  "n_success": 1,
+  "seed_start": 9000,
+  "seed_end_exclusive": 9200,
+  "next_seed": 9001,
+  "seeds": [
+    9000
+  ],
+  "rejected": {},
+  "failed": {},
+  "legal": {
+    "x": [
+      0.18,
+      0.36
+    ],
+    "y": [
+      -0.45,
+      -0.18
+    ],
+    "min_peg_socket_sep_m": 0.12,
+    "clearance_m": 0.01,
+    "tablecam_margin_px": 16,
+    "image": 256,
+    "peg_radius_m": 0.014,
+    "socket_outer_m": 0.034
+  }
+}

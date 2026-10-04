@@ -1,0 +1,34 @@
+seed=30000 reject too_close
+seed=30001 reject too_close
+seed=30002 reject too_close
+saved 1/5 seed=30003
+seed=30004 reject too_close
+seed=30005 reject pedestal_or_gripper
+saved 2/5 seed=30006
+seed=30007 reject too_close
+seed=30008 reject too_close
+seed=30009 reject too_close
+seed=30010 reject too_close
+seed=30011 reject too_close
+seed=30012 reject pedestal_or_gripper
+saved 3/5 seed=30013
+saved 4/5 seed=30014
+seed=30015 reject too_close
+seed=30016 reject too_close
+seed=30017 reject too_close
+seed=30018 reject unreachable ik_mm=12.7
+seed=30019 reject pedestal_or_gripper
+seed=30020 reject too_close
+seed=30021 reject too_close
+seed=30022 reject too_close
+seed=30023 reject too_close
+seed=30024 reject pedestal_or_gripper
+seed=30025 reject pedestal_or_gripper
+seed=30026 reject too_close
+seed=30027 reject too_close
+seed=30028 reject too_close
+seed=30029 reject unreachable ik_mm=22.1
+seed=30030 reject pedestal_or_gripper
+seed=30031 reject unreachable ik_mm=22.0
+saved 5/5 seed=30032
+wrote 5 episodes to data\datasets\peg_face_val
