@@ -30,9 +30,10 @@ Training stopped on its own when validation loss failed to improve by more than 
 | [stageA](stageA/REPORT.md) | 50 demos, same frozen recipe | same 20 scenes: 1/20 in the bin, 1 grasp, 8.4 cm |
 | [headcam](headcam/REPORT.md) | shoulder camera, 50 new demos, vision still frozen | new 20 scenes: 0/20 in the bin, 1 grasp, 10.1 cm at the best loss |
 | [headcam_vision](headcam_vision/REPORT.md) | SigLIP unfrozen, language model still frozen | no robot eval; validation loss stayed worse than the frozen run |
+| [vision_xy](vision_xy/REPORT.md) | SigLIP trained to predict the ball's xy, arm not trained | no robot eval; held-out miss 9.2 cm, gate was 5 cm |
 | [probes](probes/REPORT.md) | no new weights | frozen vision cannot find the ball; the sentence does not steer the arm |
 
-The 10-demo run is the closest reach that was measured. More demos, a new camera, and unfreezing the vision tower did not produce a policy that throws.
+The 10-demo run is the closest reach that was measured. More demos, a new camera, and unfreezing the vision tower did not produce a policy that throws. Training SigLIP to name the ball's position, in [vision_xy](vision_xy/REPORT.md), memorized the 50 training layouts and missed by 9.2 cm on the 20 held-out ones.
 
 The pattern across the probes: the action head imitates a reach, and the frozen image and language features do not tell it which ball the sentence named. The loss can fall two orders of magnitude while the hand stays several centimeters off the ball.
 
@@ -42,6 +43,6 @@ Overfit10 and Stage A were trained and filmed with a room camera. The simulator 
 
 ## What this folder leaves out
 
-`checkpoints/bench` is a 100-step plumbing check on 3 demos, and `artifacts/smolvla_smoke` is a one-episode smoke eval. Neither is a fine-tune result. A 500-demo set was never collected. The vision-unfreeze checkpoint was never played on the robot, so that folder has a loss plot and no videos.
+`checkpoints/bench` is a 100-step plumbing check on 3 demos, and `artifacts/smolvla_smoke` is a one-episode smoke eval. Neither is a fine-tune result. A 500-demo set was never collected. The vision-unfreeze checkpoint was never played on the robot, so that folder has a loss plot and no videos. The xy run saved no weights. Its labels and log are under `artifacts/vision_xy/`. The stored front videos in `train_head` and `val_head` do not match a fresh render from the current overhead `headcam`; the wrist frames and the joint state do.
 
 Every seed's video, if you need the full set, is under `artifacts/`. The clips here are the ones that show the result.
