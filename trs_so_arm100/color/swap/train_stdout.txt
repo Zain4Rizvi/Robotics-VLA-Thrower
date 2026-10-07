@@ -1,0 +1,15 @@
+self_check ok
+xy mean [0.007153278216719627, -0.21075277030467987, -0.005019874777644873, -0.21059522032737732] std [0.07309894263744354, 0.03569676727056503, 0.06952647864818573, 0.03845584765076637]
+gpu memory used 1352 MB -> batch 2
+lerobot-train --policy.path=trs_so_arm100\best\pretrained_model --dataset.repo_id=local/train --dataset.root=trs_so_arm100\color\swap\datasets\train --dataset.video_backend=pyav --policy.device=cuda --policy.use_amp=false --policy.push_to_hub=false --policy.freeze_vision_encoder=true --policy.train_expert_only=true --policy.optimizer_lr=1.0e-4 --policy.scheduler_warmup_steps=100 --policy.scheduler_decay_steps=2000 --batch_size=2 --steps=2000 --save_freq=1000 --log_freq=50 --num_workers=0 --output_dir=trs_so_arm100\color\swap\checkpoints --wandb.enable=false
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+action expert trainable: 98245840
+joint normalizer kept [4.951726913452148, 89.34123229980469, 95.66333770751953, 89.38887786865234, -94.94136047363281, 20.297988891601562]
+state_proj (960, 32) xy abs mean 0.644
+[val] step 500: val_loss=0.2151 n=5738
+[val] step 1000: val_loss=0.1354 n=5738
+[val] step 1500: val_loss=0.0996 n=5738
+[val] step 2000: val_loss=0.0905 n=5738
+{"steps": 2000, "batch": 2, "gpu_used_mb_at_start": 1352}

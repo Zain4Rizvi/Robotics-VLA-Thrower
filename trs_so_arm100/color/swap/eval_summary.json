@@ -1,0 +1,861 @@
+{
+  "seeds": [
+    30000,
+    30001,
+    30002,
+    30003,
+    30004,
+    30005,
+    30006,
+    30007,
+    30008,
+    30009
+  ],
+  "mode": "swap",
+  "sentences": {
+    "red_on_green": {
+      "task": "stack the red cube on the green cube",
+      "results": {
+        "0": {
+          "stacks": 2,
+          "grasps": 6,
+          "drops": 3,
+          "closest_m_mean": 0.07013512783296409,
+          "closest_m_best": 0.003587858702852922,
+          "episodes": [
+            {
+              "seed": 30000,
+              "stack": true,
+              "grasp": true,
+              "drop": false,
+              "closest_m": 0.008114245005554249,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30001,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.17228630612128557,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30002,
+              "stack": true,
+              "grasp": true,
+              "drop": false,
+              "closest_m": 0.010717992666989874,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30003,
+              "stack": false,
+              "grasp": true,
+              "drop": false,
+              "closest_m": 0.0599422344720321,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30004,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.09665562900472956,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30005,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.21825884497246592,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30006,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.10538689216087037,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30007,
+              "stack": false,
+              "grasp": true,
+              "drop": true,
+              "closest_m": 0.012626179239923303,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30008,
+              "stack": false,
+              "grasp": true,
+              "drop": true,
+              "closest_m": 0.01377509598293714,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30009,
+              "stack": false,
+              "grasp": true,
+              "drop": true,
+              "closest_m": 0.003587858702852922,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            }
+          ]
+        },
+        "1000": {
+          "stacks": 0,
+          "grasps": 1,
+          "drops": 1,
+          "closest_m_mean": 0.13382741669914294,
+          "closest_m_best": 0.021070337626174985,
+          "episodes": [
+            {
+              "seed": 30000,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.11403258608161677,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30001,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.16368599586537594,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30002,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.16000460157523397,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30003,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.21514391369993033,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30004,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.09820772125015005,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30005,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.22278220260201345,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30006,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.09277735868548208,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30007,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.14300276881152646,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30008,
+              "stack": false,
+              "grasp": true,
+              "drop": true,
+              "closest_m": 0.021070337626174985,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30009,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.10756668079392534,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            }
+          ]
+        },
+        "2000": {
+          "stacks": 0,
+          "grasps": 2,
+          "drops": 1,
+          "closest_m_mean": 0.13549778127113113,
+          "closest_m_best": 0.0547694251441963,
+          "episodes": [
+            {
+              "seed": 30000,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.10902792143418563,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30001,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.1820322411340193,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30002,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.16000460157523397,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30003,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.21514391369993033,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30004,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.09600744379160256,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30005,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.2269276784956937,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30006,
+              "stack": false,
+              "grasp": true,
+              "drop": false,
+              "closest_m": 0.059838420602040095,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30007,
+              "stack": false,
+              "grasp": true,
+              "drop": true,
+              "closest_m": 0.1427397297817125,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30008,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.10848643705269673,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30009,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.0547694251441963,
+              "task": "stack the red cube on the green cube",
+              "source_body": "red_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "green_on_red": {
+      "task": "stack the green cube on the red cube",
+      "results": {
+        "0": {
+          "stacks": 0,
+          "grasps": 0,
+          "drops": 0,
+          "closest_m_mean": 0.08548565850790897,
+          "closest_m_best": 0.044429796656225234,
+          "episodes": [
+            {
+              "seed": 30000,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.059358171868787224,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30001,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.17478972127579873,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30002,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.05367317008721299,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30003,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.08253505099619857,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30004,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.09695198018986124,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30005,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.19223502301259462,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30006,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.045980437750745846,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30007,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.058043543002188815,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30008,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.044429796656225234,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30009,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.046859690239476365,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            }
+          ]
+        },
+        "1000": {
+          "stacks": 0,
+          "grasps": 0,
+          "drops": 0,
+          "closest_m_mean": 0.12608681462145055,
+          "closest_m_best": 0.04354458049485502,
+          "episodes": [
+            {
+              "seed": 30000,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.045446262536381676,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30001,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.1681830979534637,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30002,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.14849718418108754,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30003,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.21137579415752658,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30004,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.09511614637207941,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30005,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.2215756916601411,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30006,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.1027128352970413,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30007,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.14300276881152646,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30008,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.04354458049485502,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30009,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.0814137847504026,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            }
+          ]
+        },
+        "2000": {
+          "stacks": 0,
+          "grasps": 0,
+          "drops": 0,
+          "closest_m_mean": 0.128719243917185,
+          "closest_m_best": 0.056774516151446824,
+          "episodes": [
+            {
+              "seed": 30000,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.05988127820912569,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30001,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.1820322411340193,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30002,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.16000460157523397,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30003,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.19739691120165986,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30004,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.09665100740809421,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30005,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.22693229772286733,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30006,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.10274733734727182,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30007,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.056774516151446824,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30008,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.10848643705269673,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            },
+            {
+              "seed": 30009,
+              "stack": false,
+              "grasp": false,
+              "drop": false,
+              "closest_m": 0.09628581136943434,
+              "task": "stack the green cube on the red cube",
+              "source_body": "green_box",
+              "colors": {
+                "red": "red",
+                "green": "green"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

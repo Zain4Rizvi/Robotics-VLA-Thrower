@@ -47,3 +47,14 @@ Overfit10 and Stage A were trained and filmed with a room camera. The simulator 
 `checkpoints/bench` is a 100-step plumbing check on 3 demos, and `artifacts/smolvla_smoke` is a one-episode smoke eval. Neither is a fine-tune result. A 500-demo set was never collected. The vision-unfreeze checkpoint was never played on the robot, so that folder has a loss plot and no videos. The xy run saved no weights. Its labels and log are under `artifacts/vision_xy/`. The stored front videos in `train_head` and `val_head` do not match a fresh render from the current overhead `headcam`; the wrist frames and the joint state do.
 
 Every seed's video, if you need the full set, is under `artifacts/`. The clips here are the ones that show the result.
+
+## SO-ARM cube stack
+
+A separate robot, the SO-ARM100 in `trs_so_arm100/`. The sentence is `stack the red cube on the green cube`. The best weights are `trs_so_arm100/best`. They stack 5 of 10 when they are given the true cube positions. The camera tower was not trained.
+
+| Folder | What changed | Robot result |
+|---|---|---|
+| [so_stack](so_stack/REPORT.md) | 50 demos, vision frozen, cameras and joints only | 0/10 stacks, 1 grasp, red cube stays ~9 cm short |
+| [so_see](so_see/REPORT.md) | frozen SigLIP 8×8 readout of cube xy, then a SigLIP fine-tune | 1.60 / 1.55 cm frozen; the fine-tune is worse. Gate was 1.0 cm |
+| [so_xy](so_xy/REPORT.md) | true cube xy written into state dims 6:10, 1500 steps | 0/10 stacks, 3 grasps, one episode reaches 1.4 cm |
+| [so_xy_cont](so_xy_cont/REPORT.md) | those weights, a fresh cosine, 6000 more steps | 5/10 stacks, 9 grasps, 0.4 cm best |
