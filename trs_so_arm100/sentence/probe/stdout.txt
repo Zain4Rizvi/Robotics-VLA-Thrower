@@ -1,0 +1,30 @@
+self_check ok
+train seeds 80 val seeds 32 frames [8000, 8001, 8003, 8004]
+loading C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\best\pretrained_model
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+per-camera tokens [64, 64]
+tokens 'stack the red cube on the green cube' -> 'stack the red cube on the green cube\n' n_words=9
+tokens 'stack the green cube on the red cube' -> 'stack the green cube on the red cube\n' n_words=9
+seed 1000 (1/80)
+seed 1012 (11/80)
+seed 1024 (21/80)
+seed 1035 (31/80)
+seed 1046 (41/80)
+seed 1059 (51/80)
+seed 1069 (61/80)
+seed 1080 (71/80)
+seed 1092 (80/80)
+per-camera tokens [64, 64]
+tokens 'stack the red cube on the green cube' -> 'stack the red cube on the green cube\n' n_words=9
+tokens 'stack the green cube on the red cube' -> 'stack the green cube on the red cube\n' n_words=9
+seed 8000 (1/32)
+seed 8014 (11/32)
+seed 8030 (21/32)
+seed 8041 (31/32)
+seed 8042 (32/32)
+accuracies train=1.000000 val=1.000000 shuffled_val=0.421875 gate=works
+fit {'success': True, 'nit': 34, 'loss': 0.48685986009442994, 'message': 'CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL'}
+shuffled fit {'success': True, 'nit': 321, 'loss': 39.861338063821194, 'message': 'CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL'}
+wrote C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\sentence\probe\REPORT.md

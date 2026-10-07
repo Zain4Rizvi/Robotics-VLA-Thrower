@@ -1,0 +1,44 @@
+self_check ok
+layout self_check ok
+eleven seed 60000: success=False body=red task='stack the red cube on the green cube' phase=down closest_cm=16.1
+eleven seed 60001: success=True body=green task='stack the red cube on the blue cube' phase=hold closest_cm=0.7
+eleven seed 60002: success=True body=red task='stack the red cube on the yellow cube' phase=hold closest_cm=1.0
+eleven seed 60003: success=False body=green task='stack the green cube on the red cube' phase=down closest_cm=19.5
+eleven seed 60004: success=True body=red task='stack the green cube on the blue cube' phase=hold closest_cm=0.7
+eleven seed 60005: success=True body=green task='stack the green cube on the yellow cube' phase=hold closest_cm=0.5
+eleven seed 60006: success=True body=red task='stack the blue cube on the red cube' phase=hold closest_cm=0.4
+eleven seed 60007: success=True body=green task='stack the blue cube on the green cube' phase=hold closest_cm=0.1
+eleven seed 60008: success=True body=red task='stack the blue cube on the yellow cube' phase=hold closest_cm=0.9
+eleven seed 60009: success=False body=green task='stack the yellow cube on the red cube' phase=down closest_cm=4.8
+eleven seed 60010: success=True body=red task='stack the yellow cube on the green cube' phase=hold closest_cm=0.2
+eleven seed 60011: success=True body=green task='stack the red cube on the green cube' phase=hold closest_cm=0.7
+eleven seed 60012: success=True body=red task='stack the red cube on the blue cube' phase=hold closest_cm=1.0
+eleven seed 60013: success=True body=green task='stack the red cube on the yellow cube' phase=hold closest_cm=1.1
+eleven seed 60014: success=True body=red task='stack the green cube on the red cube' phase=hold closest_cm=0.7
+eleven seed 60015: success=True body=green task='stack the green cube on the blue cube' phase=hold closest_cm=0.2
+eleven seed 60016: success=True body=red task='stack the green cube on the yellow cube' phase=hold closest_cm=0.8
+eleven seed 60017: success=True body=green task='stack the blue cube on the red cube' phase=hold closest_cm=0.8
+eleven seed 60018: success=True body=red task='stack the blue cube on the green cube' phase=hold closest_cm=0.7
+eleven seed 60019: success=True body=green task='stack the blue cube on the yellow cube' phase=hold closest_cm=0.6
+eleven gate 17/20
+yellow_on_blue seed 61000: success=True body=red task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.6
+yellow_on_blue seed 61001: success=True body=green task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.9
+yellow_on_blue seed 61002: success=True body=red task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.2
+yellow_on_blue seed 61003: success=True body=green task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.1
+yellow_on_blue seed 61004: success=True body=red task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.6
+yellow_on_blue seed 61005: success=True body=green task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.5
+yellow_on_blue seed 61006: success=True body=red task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.8
+yellow_on_blue seed 61007: success=True body=green task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.5
+yellow_on_blue seed 61008: success=True body=red task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.8
+yellow_on_blue seed 61009: success=True body=green task='stack the yellow cube on the blue cube' phase=hold closest_cm=1.0
+yellow_on_blue seed 61010: success=True body=red task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.0
+yellow_on_blue seed 61011: success=True body=green task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.2
+yellow_on_blue seed 61012: success=True body=red task='stack the yellow cube on the blue cube' phase=hold closest_cm=1.0
+yellow_on_blue seed 61013: success=False body=green task='stack the yellow cube on the blue cube' phase=down closest_cm=11.5
+yellow_on_blue seed 61014: success=True body=red task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.8
+yellow_on_blue seed 61015: success=True body=green task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.9
+yellow_on_blue seed 61016: success=True body=red task='stack the yellow cube on the blue cube' phase=hold closest_cm=1.0
+yellow_on_blue seed 61017: success=True body=green task='stack the yellow cube on the blue cube' phase=hold closest_cm=1.1
+yellow_on_blue seed 61018: success=True body=red task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.2
+yellow_on_blue seed 61019: success=True body=green task='stack the yellow cube on the blue cube' phase=hold closest_cm=0.6
+yellow_on_blue gate 19/20

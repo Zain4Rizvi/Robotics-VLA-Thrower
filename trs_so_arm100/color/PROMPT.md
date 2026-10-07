@@ -6,7 +6,7 @@ Run the plan in order. Step 1 is both red/green sentences, state slots fixed to 
 
 Each step that trains gets a report, loss.png, success.png, and the videos the plan names, before the next step starts. Do not claim a stack without that step's eval_summary.json. Counts come from the rollout, not from the loss.
 
-GTX 1660. fp32. One GPU job. Batch 2 if the desktop is already on the card, otherwise 8. Nothing on C:. First line of every new shell:
+RTX 3080, 10 GB. bf16 is supported. The train script still runs fp32. One GPU job. Pass a batch that fits free VRAM. The old rule (batch 2 if the desktop is already on the card, otherwise 8) was the 6 GB card. Nothing on C:. First line of every new shell:
 
 $env:HF_HOME="Z:\hf_cache"; $env:UV_CACHE_DIR="Z:\uv_cache"; $env:TEMP="Z:\tmp"; $env:TMP="Z:\tmp"; $env:TORCH_HOME="Z:\hf_cache\torch"; $env:XDG_CACHE_HOME="Z:\hf_cache\xdg"; $env:MUJOCO_GL="glfw"
 

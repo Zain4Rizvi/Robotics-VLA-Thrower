@@ -1,0 +1,574 @@
+[
+  {
+    "episode": 0,
+    "seed": 50000,
+    "sentence": "stack the red cube on the green cube",
+    "source_color": "red",
+    "target_color": "green",
+    "source_body": "red_box",
+    "colors": {
+      "red": "red",
+      "green": "green"
+    },
+    "steps": 191
+  },
+  {
+    "episode": 1,
+    "seed": 50001,
+    "sentence": "stack the red cube on the green cube",
+    "source_color": "red",
+    "target_color": "green",
+    "source_body": "green_box",
+    "colors": {
+      "green": "red",
+      "red": "green"
+    },
+    "steps": 220
+  },
+  {
+    "episode": 2,
+    "seed": 50002,
+    "sentence": "stack the red cube on the green cube",
+    "source_color": "red",
+    "target_color": "green",
+    "source_body": "green_box",
+    "colors": {
+      "green": "red",
+      "red": "green"
+    },
+    "steps": 147
+  },
+  {
+    "episode": 3,
+    "seed": 50003,
+    "sentence": "stack the red cube on the green cube",
+    "source_color": "red",
+    "target_color": "green",
+    "source_body": "green_box",
+    "colors": {
+      "green": "red",
+      "red": "green"
+    },
+    "steps": 172
+  },
+  {
+    "episode": 4,
+    "seed": 50004,
+    "sentence": "stack the red cube on the blue cube",
+    "source_color": "red",
+    "target_color": "blue",
+    "source_body": "red_box",
+    "colors": {
+      "red": "red",
+      "green": "blue"
+    },
+    "steps": 314
+  },
+  {
+    "episode": 5,
+    "seed": 50005,
+    "sentence": "stack the red cube on the blue cube",
+    "source_color": "red",
+    "target_color": "blue",
+    "source_body": "red_box",
+    "colors": {
+      "red": "red",
+      "green": "blue"
+    },
+    "steps": 162
+  },
+  {
+    "episode": 6,
+    "seed": 50006,
+    "sentence": "stack the red cube on the blue cube",
+    "source_color": "red",
+    "target_color": "blue",
+    "source_body": "green_box",
+    "colors": {
+      "green": "red",
+      "red": "blue"
+    },
+    "steps": 219
+  },
+  {
+    "episode": 7,
+    "seed": 50007,
+    "sentence": "stack the red cube on the blue cube",
+    "source_color": "red",
+    "target_color": "blue",
+    "source_body": "green_box",
+    "colors": {
+      "green": "red",
+      "red": "blue"
+    },
+    "steps": 174
+  },
+  {
+    "episode": 8,
+    "seed": 50008,
+    "sentence": "stack the red cube on the yellow cube",
+    "source_color": "red",
+    "target_color": "yellow",
+    "source_body": "green_box",
+    "colors": {
+      "green": "red",
+      "red": "yellow"
+    },
+    "steps": 156
+  },
+  {
+    "episode": 9,
+    "seed": 50009,
+    "sentence": "stack the red cube on the yellow cube",
+    "source_color": "red",
+    "target_color": "yellow",
+    "source_body": "red_box",
+    "colors": {
+      "red": "red",
+      "green": "yellow"
+    },
+    "steps": 168
+  },
+  {
+    "episode": 10,
+    "seed": 50010,
+    "sentence": "stack the red cube on the yellow cube",
+    "source_color": "red",
+    "target_color": "yellow",
+    "source_body": "green_box",
+    "colors": {
+      "green": "red",
+      "red": "yellow"
+    },
+    "steps": 262
+  },
+  {
+    "episode": 11,
+    "seed": 50011,
+    "sentence": "stack the red cube on the yellow cube",
+    "source_color": "red",
+    "target_color": "yellow",
+    "source_body": "red_box",
+    "colors": {
+      "red": "red",
+      "green": "yellow"
+    },
+    "steps": 179
+  },
+  {
+    "episode": 12,
+    "seed": 50013,
+    "sentence": "stack the green cube on the red cube",
+    "source_color": "green",
+    "target_color": "red",
+    "source_body": "green_box",
+    "colors": {
+      "green": "green",
+      "red": "red"
+    },
+    "steps": 174
+  },
+  {
+    "episode": 13,
+    "seed": 50014,
+    "sentence": "stack the green cube on the red cube",
+    "source_color": "green",
+    "target_color": "red",
+    "source_body": "green_box",
+    "colors": {
+      "green": "green",
+      "red": "red"
+    },
+    "steps": 168
+  },
+  {
+    "episode": 14,
+    "seed": 50015,
+    "sentence": "stack the green cube on the red cube",
+    "source_color": "green",
+    "target_color": "red",
+    "source_body": "green_box",
+    "colors": {
+      "green": "green",
+      "red": "red"
+    },
+    "steps": 183
+  },
+  {
+    "episode": 15,
+    "seed": 50017,
+    "sentence": "stack the green cube on the red cube",
+    "source_color": "green",
+    "target_color": "red",
+    "source_body": "green_box",
+    "colors": {
+      "green": "green",
+      "red": "red"
+    },
+    "steps": 196
+  },
+  {
+    "episode": 16,
+    "seed": 50018,
+    "sentence": "stack the green cube on the blue cube",
+    "source_color": "green",
+    "target_color": "blue",
+    "source_body": "red_box",
+    "colors": {
+      "red": "green",
+      "green": "blue"
+    },
+    "steps": 181
+  },
+  {
+    "episode": 17,
+    "seed": 50019,
+    "sentence": "stack the green cube on the blue cube",
+    "source_color": "green",
+    "target_color": "blue",
+    "source_body": "green_box",
+    "colors": {
+      "green": "green",
+      "red": "blue"
+    },
+    "steps": 186
+  },
+  {
+    "episode": 18,
+    "seed": 50020,
+    "sentence": "stack the green cube on the blue cube",
+    "source_color": "green",
+    "target_color": "blue",
+    "source_body": "red_box",
+    "colors": {
+      "red": "green",
+      "green": "blue"
+    },
+    "steps": 162
+  },
+  {
+    "episode": 19,
+    "seed": 50021,
+    "sentence": "stack the green cube on the blue cube",
+    "source_color": "green",
+    "target_color": "blue",
+    "source_body": "red_box",
+    "colors": {
+      "red": "green",
+      "green": "blue"
+    },
+    "steps": 182
+  },
+  {
+    "episode": 20,
+    "seed": 50022,
+    "sentence": "stack the green cube on the yellow cube",
+    "source_color": "green",
+    "target_color": "yellow",
+    "source_body": "red_box",
+    "colors": {
+      "red": "green",
+      "green": "yellow"
+    },
+    "steps": 170
+  },
+  {
+    "episode": 21,
+    "seed": 50023,
+    "sentence": "stack the green cube on the yellow cube",
+    "source_color": "green",
+    "target_color": "yellow",
+    "source_body": "red_box",
+    "colors": {
+      "red": "green",
+      "green": "yellow"
+    },
+    "steps": 188
+  },
+  {
+    "episode": 22,
+    "seed": 50024,
+    "sentence": "stack the green cube on the yellow cube",
+    "source_color": "green",
+    "target_color": "yellow",
+    "source_body": "green_box",
+    "colors": {
+      "green": "green",
+      "red": "yellow"
+    },
+    "steps": 178
+  },
+  {
+    "episode": 23,
+    "seed": 50025,
+    "sentence": "stack the green cube on the yellow cube",
+    "source_color": "green",
+    "target_color": "yellow",
+    "source_body": "green_box",
+    "colors": {
+      "green": "green",
+      "red": "yellow"
+    },
+    "steps": 174
+  },
+  {
+    "episode": 24,
+    "seed": 50026,
+    "sentence": "stack the blue cube on the red cube",
+    "source_color": "blue",
+    "target_color": "red",
+    "source_body": "red_box",
+    "colors": {
+      "red": "blue",
+      "green": "red"
+    },
+    "steps": 181
+  },
+  {
+    "episode": 25,
+    "seed": 50028,
+    "sentence": "stack the blue cube on the red cube",
+    "source_color": "blue",
+    "target_color": "red",
+    "source_body": "red_box",
+    "colors": {
+      "red": "blue",
+      "green": "red"
+    },
+    "steps": 168
+  },
+  {
+    "episode": 26,
+    "seed": 50029,
+    "sentence": "stack the blue cube on the red cube",
+    "source_color": "blue",
+    "target_color": "red",
+    "source_body": "green_box",
+    "colors": {
+      "green": "blue",
+      "red": "red"
+    },
+    "steps": 156
+  },
+  {
+    "episode": 27,
+    "seed": 50030,
+    "sentence": "stack the blue cube on the red cube",
+    "source_color": "blue",
+    "target_color": "red",
+    "source_body": "red_box",
+    "colors": {
+      "red": "blue",
+      "green": "red"
+    },
+    "steps": 172
+  },
+  {
+    "episode": 28,
+    "seed": 50031,
+    "sentence": "stack the blue cube on the green cube",
+    "source_color": "blue",
+    "target_color": "green",
+    "source_body": "red_box",
+    "colors": {
+      "red": "blue",
+      "green": "green"
+    },
+    "steps": 211
+  },
+  {
+    "episode": 29,
+    "seed": 50032,
+    "sentence": "stack the blue cube on the green cube",
+    "source_color": "blue",
+    "target_color": "green",
+    "source_body": "green_box",
+    "colors": {
+      "green": "blue",
+      "red": "green"
+    },
+    "steps": 176
+  },
+  {
+    "episode": 30,
+    "seed": 50033,
+    "sentence": "stack the blue cube on the green cube",
+    "source_color": "blue",
+    "target_color": "green",
+    "source_body": "red_box",
+    "colors": {
+      "red": "blue",
+      "green": "green"
+    },
+    "steps": 176
+  },
+  {
+    "episode": 31,
+    "seed": 50034,
+    "sentence": "stack the blue cube on the green cube",
+    "source_color": "blue",
+    "target_color": "green",
+    "source_body": "green_box",
+    "colors": {
+      "green": "blue",
+      "red": "green"
+    },
+    "steps": 188
+  },
+  {
+    "episode": 32,
+    "seed": 50035,
+    "sentence": "stack the blue cube on the yellow cube",
+    "source_color": "blue",
+    "target_color": "yellow",
+    "source_body": "green_box",
+    "colors": {
+      "green": "blue",
+      "red": "yellow"
+    },
+    "steps": 177
+  },
+  {
+    "episode": 33,
+    "seed": 50036,
+    "sentence": "stack the blue cube on the yellow cube",
+    "source_color": "blue",
+    "target_color": "yellow",
+    "source_body": "red_box",
+    "colors": {
+      "red": "blue",
+      "green": "yellow"
+    },
+    "steps": 167
+  },
+  {
+    "episode": 34,
+    "seed": 50037,
+    "sentence": "stack the blue cube on the yellow cube",
+    "source_color": "blue",
+    "target_color": "yellow",
+    "source_body": "red_box",
+    "colors": {
+      "red": "blue",
+      "green": "yellow"
+    },
+    "steps": 173
+  },
+  {
+    "episode": 35,
+    "seed": 50038,
+    "sentence": "stack the blue cube on the yellow cube",
+    "source_color": "blue",
+    "target_color": "yellow",
+    "source_body": "red_box",
+    "colors": {
+      "red": "blue",
+      "green": "yellow"
+    },
+    "steps": 187
+  },
+  {
+    "episode": 36,
+    "seed": 50039,
+    "sentence": "stack the yellow cube on the red cube",
+    "source_color": "yellow",
+    "target_color": "red",
+    "source_body": "red_box",
+    "colors": {
+      "red": "yellow",
+      "green": "red"
+    },
+    "steps": 193
+  },
+  {
+    "episode": 37,
+    "seed": 50040,
+    "sentence": "stack the yellow cube on the red cube",
+    "source_color": "yellow",
+    "target_color": "red",
+    "source_body": "green_box",
+    "colors": {
+      "green": "yellow",
+      "red": "red"
+    },
+    "steps": 199
+  },
+  {
+    "episode": 38,
+    "seed": 50041,
+    "sentence": "stack the yellow cube on the red cube",
+    "source_color": "yellow",
+    "target_color": "red",
+    "source_body": "red_box",
+    "colors": {
+      "red": "yellow",
+      "green": "red"
+    },
+    "steps": 162
+  },
+  {
+    "episode": 39,
+    "seed": 50042,
+    "sentence": "stack the yellow cube on the red cube",
+    "source_color": "yellow",
+    "target_color": "red",
+    "source_body": "green_box",
+    "colors": {
+      "green": "yellow",
+      "red": "red"
+    },
+    "steps": 217
+  },
+  {
+    "episode": 40,
+    "seed": 50043,
+    "sentence": "stack the yellow cube on the green cube",
+    "source_color": "yellow",
+    "target_color": "green",
+    "source_body": "green_box",
+    "colors": {
+      "green": "yellow",
+      "red": "green"
+    },
+    "steps": 189
+  },
+  {
+    "episode": 41,
+    "seed": 50044,
+    "sentence": "stack the yellow cube on the green cube",
+    "source_color": "yellow",
+    "target_color": "green",
+    "source_body": "red_box",
+    "colors": {
+      "red": "yellow",
+      "green": "green"
+    },
+    "steps": 165
+  },
+  {
+    "episode": 42,
+    "seed": 50045,
+    "sentence": "stack the yellow cube on the green cube",
+    "source_color": "yellow",
+    "target_color": "green",
+    "source_body": "green_box",
+    "colors": {
+      "green": "yellow",
+      "red": "green"
+    },
+    "steps": 195
+  },
+  {
+    "episode": 43,
+    "seed": 50046,
+    "sentence": "stack the yellow cube on the green cube",
+    "source_color": "yellow",
+    "target_color": "green",
+    "source_body": "red_box",
+    "colors": {
+      "red": "yellow",
+      "green": "green"
+    },
+    "steps": 170
+  }
+]

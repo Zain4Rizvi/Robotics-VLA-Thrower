@@ -8,4 +8,6 @@ What is already settled, in `findings/`:
 - Frozen SigLIP places each cube to about 1.6 cm. Training SigLIP on these 50 demos made that worse ([so_see](../findings/so_see/REPORT.md)).
 - Giving the action expert true red xy and green xy in state dimensions 6:10, then training it long enough, reached 5 of 10 ([so_xy_cont](../findings/so_xy_cont/REPORT.md)). Vision and language stayed frozen.
 
-The next sitting is `color/PLAN.md`: both red/green sentences, then other color words, still with true cube positions and with vision frozen. A vision readout that replaces those positions stays later. Predicted-xy training waits on that readout. Another SigLIP fine-tune on these same 50 demos is the attempt that already got worse.
+The color sitting in `color/PLAN.md` finished its first step and stopped. Green on red stacked 0 of 10, so the palette was not started. The record is `color/swap/REPORT.md`.
+
+The next sitting is `sentence/PLAN.md`. It checks whether the frozen sentence note can tell those two sentences apart, then runs one train chosen by that check. A vision readout that replaces the true cube positions stays later. Predicted-xy training waits on that readout. Another SigLIP fine-tune on these same demos is the attempt that already got worse.

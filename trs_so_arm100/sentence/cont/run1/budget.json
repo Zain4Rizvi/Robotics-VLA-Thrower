@@ -1,0 +1,8 @@
+{
+  "requested_steps": 8000,
+  "steps": 8000,
+  "cut": false,
+  "minutes_per_1000": 21.398276706666667,
+  "measured_at_step": 1000,
+  "green_weight": 1.0
+}

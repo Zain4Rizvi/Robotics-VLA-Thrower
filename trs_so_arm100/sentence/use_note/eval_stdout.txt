@@ -1,0 +1,77 @@
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+checkpoint step 0 trs_so_arm100\best\pretrained_model
+word notes (1, 960) words/row 9 lang positions 48
+seed 30000: stack=False grasp=False drop=False closest_cm=11.4 task='stack the red cube on the green cube'
+seed 30001: stack=False grasp=False drop=False closest_cm=18.2 task='stack the red cube on the green cube'
+seed 30002: stack=False grasp=False drop=False closest_cm=15.9 task='stack the red cube on the green cube'
+seed 30003: stack=False grasp=False drop=False closest_cm=21.5 task='stack the red cube on the green cube'
+seed 30004: stack=False grasp=False drop=False closest_cm=9.7 task='stack the red cube on the green cube'
+seed 30005: stack=False grasp=False drop=False closest_cm=22.7 task='stack the red cube on the green cube'
+seed 30006: stack=False grasp=False drop=False closest_cm=11.2 task='stack the red cube on the green cube'
+seed 30007: stack=False grasp=False drop=False closest_cm=14.3 task='stack the red cube on the green cube'
+seed 30008: stack=False grasp=False drop=False closest_cm=10.8 task='stack the red cube on the green cube'
+seed 30009: stack=False grasp=False drop=False closest_cm=10.8 task='stack the red cube on the green cube'
+seed 30000: stack=False grasp=False drop=False closest_cm=11.4 task='stack the green cube on the red cube'
+seed 30001: stack=False grasp=False drop=False closest_cm=18.2 task='stack the green cube on the red cube'
+seed 30002: stack=False grasp=False drop=False closest_cm=16.0 task='stack the green cube on the red cube'
+seed 30003: stack=False grasp=False drop=False closest_cm=21.5 task='stack the green cube on the red cube'
+seed 30004: stack=False grasp=False drop=False closest_cm=9.8 task='stack the green cube on the red cube'
+seed 30005: stack=False grasp=False drop=False closest_cm=22.7 task='stack the green cube on the red cube'
+seed 30006: stack=False grasp=False drop=False closest_cm=11.2 task='stack the green cube on the red cube'
+seed 30007: stack=False grasp=False drop=False closest_cm=14.3 task='stack the green cube on the red cube'
+seed 30008: stack=False grasp=False drop=False closest_cm=10.8 task='stack the green cube on the red cube'
+seed 30009: stack=False grasp=False drop=False closest_cm=10.7 task='stack the green cube on the red cube'
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+checkpoint step 1000 trs_so_arm100\sentence\use_note\checkpoints\checkpoints\001000\pretrained_model
+word notes (1, 960) words/row 9 lang positions 48
+seed 30000: stack=True grasp=True drop=False closest_cm=1.0 task='stack the red cube on the green cube'
+seed 30001: stack=False grasp=False drop=False closest_cm=17.8 task='stack the red cube on the green cube'
+seed 30002: stack=False grasp=True drop=True closest_cm=1.4 task='stack the red cube on the green cube'
+seed 30003: stack=False grasp=True drop=False closest_cm=19.4 task='stack the red cube on the green cube'
+seed 30004: stack=True grasp=True drop=False closest_cm=0.2 task='stack the red cube on the green cube'
+seed 30005: stack=False grasp=False drop=False closest_cm=22.7 task='stack the red cube on the green cube'
+seed 30006: stack=False grasp=False drop=False closest_cm=7.0 task='stack the red cube on the green cube'
+seed 30007: stack=True grasp=True drop=False closest_cm=0.1 task='stack the red cube on the green cube'
+seed 30008: stack=False grasp=True drop=True closest_cm=2.3 task='stack the red cube on the green cube'
+seed 30009: stack=False grasp=True drop=True closest_cm=8.2 task='stack the red cube on the green cube'
+seed 30000: stack=False grasp=False drop=False closest_cm=11.2 task='stack the green cube on the red cube'
+seed 30001: stack=False grasp=True drop=False closest_cm=3.7 task='stack the green cube on the red cube'
+seed 30002: stack=False grasp=True drop=True closest_cm=2.0 task='stack the green cube on the red cube'
+seed 30003: stack=False grasp=True drop=True closest_cm=1.3 task='stack the green cube on the red cube'
+seed 30004: stack=False grasp=True drop=False closest_cm=3.3 task='stack the green cube on the red cube'
+seed 30005: stack=False grasp=False drop=False closest_cm=22.6 task='stack the green cube on the red cube'
+seed 30006: stack=False grasp=False drop=False closest_cm=10.6 task='stack the green cube on the red cube'
+seed 30007: stack=False grasp=False drop=False closest_cm=14.1 task='stack the green cube on the red cube'
+seed 30008: stack=False grasp=True drop=True closest_cm=1.9 task='stack the green cube on the red cube'
+seed 30009: stack=False grasp=False drop=False closest_cm=9.5 task='stack the green cube on the red cube'
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+checkpoint step 2000 trs_so_arm100\sentence\use_note\checkpoints\checkpoints\002000\pretrained_model
+word notes (1, 960) words/row 9 lang positions 48
+seed 30000: stack=False grasp=False drop=False closest_cm=9.7 task='stack the red cube on the green cube'
+seed 30001: stack=True grasp=True drop=False closest_cm=1.2 task='stack the red cube on the green cube'
+seed 30002: stack=True grasp=True drop=False closest_cm=0.9 task='stack the red cube on the green cube'
+seed 30003: stack=True grasp=True drop=False closest_cm=1.2 task='stack the red cube on the green cube'
+seed 30004: stack=False grasp=True drop=True closest_cm=6.5 task='stack the red cube on the green cube'
+seed 30005: stack=False grasp=False drop=False closest_cm=19.8 task='stack the red cube on the green cube'
+seed 30006: stack=False grasp=True drop=True closest_cm=2.7 task='stack the red cube on the green cube'
+seed 30007: stack=True grasp=True drop=False closest_cm=0.5 task='stack the red cube on the green cube'
+seed 30008: stack=True grasp=True drop=False closest_cm=0.8 task='stack the red cube on the green cube'
+seed 30009: stack=False grasp=True drop=True closest_cm=2.0 task='stack the red cube on the green cube'
+seed 30000: stack=True grasp=True drop=False closest_cm=0.9 task='stack the green cube on the red cube'
+seed 30001: stack=False grasp=True drop=True closest_cm=4.6 task='stack the green cube on the red cube'
+seed 30002: stack=True grasp=True drop=False closest_cm=1.1 task='stack the green cube on the red cube'
+seed 30003: stack=False grasp=False drop=False closest_cm=18.7 task='stack the green cube on the red cube'
+seed 30004: stack=False grasp=True drop=True closest_cm=1.9 task='stack the green cube on the red cube'
+seed 30005: stack=False grasp=False drop=False closest_cm=22.7 task='stack the green cube on the red cube'
+seed 30006: stack=False grasp=False drop=False closest_cm=10.7 task='stack the green cube on the red cube'
+seed 30007: stack=False grasp=True drop=True closest_cm=1.4 task='stack the green cube on the red cube'
+seed 30008: stack=False grasp=False drop=False closest_cm=10.0 task='stack the green cube on the red cube'
+seed 30009: stack=False grasp=False drop=False closest_cm=9.0 task='stack the green cube on the red cube'
+step2000 red_on_green=5 green_on_red=2
+wrote trs_so_arm100\sentence\use_note\REPORT.md

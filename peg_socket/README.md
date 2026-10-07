@@ -15,7 +15,7 @@ The user says "place the peg in the hole" and the right arm does it. The policy 
 - Instruction, every episode: `place the peg in the hole`.
 - Grasp is friction only. `grasp_right_peg` stays disabled. The approach has to be fully open.
 - Success: peg center stays inside the socket opening for 0.5 s. Failures: `never_grasped`, `dropped`, `missed`, `timeout`.
-- fp32 only. Nothing written to `C:`. First line of every shell:
+- GPU is an RTX 3080, 10 GB. It supports bf16. Train and load scripts still run fp32 until the `.float()` cast is removed. Nothing written to `C:`. First line of every shell:
 
 ```powershell
 $env:HF_HOME="Z:\hf_cache"; $env:UV_CACHE_DIR="Z:\uv_cache"; $env:TEMP="Z:\tmp"; $env:TMP="Z:\tmp"; $env:TORCH_HOME="Z:\hf_cache\torch"; $env:XDG_CACHE_HOME="Z:\hf_cache\xdg"; $env:MUJOCO_GL="glfw"

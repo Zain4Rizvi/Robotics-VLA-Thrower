@@ -2,6 +2,8 @@
 
 This folder is the record of the SmolVLA fine-tunes on the OpenArm throw task, plus the scripted expert those runs imitated. The loss plots, the closed-loop counts, and the videos in each subfolder are enough to see what was tried and what the robot did.
 
+These runs trained on a GTX 1660 (6 GB, fp32). The machine is now an RTX 3080, 10 GB. How to train on it is in `AGENTS.md`. The 6 GB batch ceilings below are what that old card could hold.
+
 The layer widths of the network those runs trained are in [smolvla_architecture](smolvla_architecture.md).
 
 The task is a sentence such as "throw the red ball into the blue bucket." The right arm has to pick that ball off the side table and throw it into that floor bin. Five balls and five bins, colors shuffled independently. The policy sees two cameras, its own joints, and the sentence. It never sees ball or bin positions. The scripted expert does, and the training data is that expert's successful throws.

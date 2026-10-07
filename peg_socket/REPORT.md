@@ -231,7 +231,7 @@ Every episode is `never_grasped` and ran 900 steps. A longer playback will not s
 - Do not replace the expert's approach transit with one high waypoint.
 - Do not run two demo collectors, and do not collect during a GPU job.
 - Do not read `policy.dtype` on `SmolVLAPolicy`.
-- Do not retry batch 4 or batch 8 on this 6 GB card with the default caching allocator. The run that finished used batch 2 and `cudaMallocAsync`.
+- The finished run used batch 2 and `cudaMallocAsync`. Batch 4 and batch 8 died on the old 6 GB GTX 1660. The machine is now an RTX 3080, 10 GB, so size the next batch from free VRAM.
 - Do not train `checkpoints/peg_face_probe` on `peg_train` or `peg_val`. Those videos are the overhead camera.
 - Do not point any of these checkpoints at the throw scenes, or a throw checkpoint at this scene. `tablecam` is not `headcam`.
 - Do not play a longer chunk to smooth this policy. The shake is inside the 50 steps the checkpoint already emits.

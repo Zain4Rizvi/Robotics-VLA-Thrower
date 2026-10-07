@@ -1,0 +1,8 @@
+{
+  "from_checkpoint": "C:\\Users\\Zain\\Documents\\Robotics-VLA-Thrower\\trs_so_arm100\\sentence\\use_note\\checkpoints\\checkpoints\\002000\\pretrained_model",
+  "init_step": 2000,
+  "green_weight": 1.0,
+  "requested_steps": 8000,
+  "save_freq": 2000,
+  "val_every": 1000
+}

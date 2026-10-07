@@ -293,7 +293,11 @@ def run_episode(sim: StackSim, seed: int, source: str = "red", colors: dict[str,
         if name == "hover":
             done = np.linalg.norm(sim.pinch()[:2] - src[:2]) < 0.008 and sim.pinch()[2] > src[2] + 0.04
         elif name == "down":
-            done = np.linalg.norm(sim.pinch() - src) < 0.007
+            dist = float(np.linalg.norm(sim.pinch() - src))
+            done = dist < 0.007
+            # IK can stall a few millimetres outside the 7 mm gate while still on the cube.
+            if not done and phase_n + 1 >= limit[name] and dist < 0.011:
+                done = True
             if np.linalg.norm(src[:2] - lock[:2]) > 0.01 and retries < 2:
                 retries += 1
                 lock = src.copy()

@@ -12,7 +12,7 @@ The checkpoint to reach is step 3: a cube color that never appeared in training,
 
 ## Machine
 
-GTX 1660, fp32. Vision frozen. Language frozen. Action expert and `state_proj` train. Batch 2 if the desktop is already on the card (GPU memory used ≥ 800 MB), otherwise 8. One GPU job. Nothing on `C:`. First line of every new shell:
+RTX 3080, 10 GB. The train script still runs fp32 (`use_amp=false`, policy cast with `.float()`). Vision frozen. Language frozen. Action expert and `state_proj` train. The old batch rule (2 when used GPU memory is ≥ 800 MB, otherwise 8) was the 6 GB GTX 1660, and `color/train.py` still applies it. Pass `--batch-size` from free VRAM. One GPU job. Nothing on `C:`. First line of every new shell:
 
 ```powershell
 $env:HF_HOME="Z:\hf_cache"; $env:UV_CACHE_DIR="Z:\uv_cache"; $env:TEMP="Z:\tmp"; $env:TMP="Z:\tmp"; $env:TORCH_HOME="Z:\hf_cache\torch"; $env:XDG_CACHE_HOME="Z:\hf_cache\xdg"; $env:MUJOCO_GL="glfw"
@@ -20,7 +20,7 @@ $env:HF_HOME="Z:\hf_cache"; $env:UV_CACHE_DIR="Z:\uv_cache"; $env:TEMP="Z:\tmp";
 
 Long job: `Start-Process .venv\Scripts\python.exe ... -RedirectStandardOutput/-Error ... -WindowStyle Hidden`. Abort with `Stop-Process`, including dataloader workers.
 
-About two hours per 2000-step train at batch 2 if validation is every 500 steps, then about half an hour to roll out. The whole sitting is a few hours. The report for a step wins over starting the next train.
+On the old GTX 1660, a 2000-step train at batch 2 with validation every 500 steps took about two hours, then about half an hour to roll out. A 3080 fp32 step is shorter. The report for a step wins over starting the next train.
 
 ## Already true
 

@@ -8,7 +8,9 @@ Repo root: `Z:\1 Github Projects\Robotics\Open Arm Folding`.
 
 - Do not change `main.py`, actuator gains, or scene physics in `v2/`. Recolor bins and balls in Python at reset.
 - Right arm only. Left arm stays at `home` ctrl every step.
-- fp32 only (GTX 1660, no bf16). Video backend is `pyav`, not torchcodec.
+- GPU is an RTX 3080, 10 GB. Ampere supports bf16. Video backend is `pyav`, not torchcodec.
+- Train and load scripts still cast SmolVLA to fp32 (`--policy.use_amp=false` and `.float()` in `scripts/train_smolvla.py`, `trs_so_arm100/color/train.py`, and `SmolVLAAdapter`). Hub weights load as bf16 and are cast down. A run stays fp32 until that cast is removed. Dataset arrays stay float32.
+- Batch ceilings in `findings/` and `peg_socket/REPORT.md` (batch 2 once the desktop is on the card, batch 4/8 out of memory, vision batch 8) are the old 6 GB GTX 1660. On this card, pick the batch from free VRAM. `configs/train_smolvla.yaml` defaults to 8. `trs_so_arm100/color/train.py` still drops to batch 2 when used GPU memory is ≥ 800 MB; pass `--batch-size` from free VRAM.
 - Nothing may be written to `C:` (~3 GB free). `setx` vars are invisible to Cursor shells, and `TEMP` defaults to `C:`. First line of every new shell:
 
 ```powershell

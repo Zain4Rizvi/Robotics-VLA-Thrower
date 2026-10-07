@@ -62,7 +62,7 @@ Step 5 never asked SmolVLM2. The fp32 load ran out of GPU memory while another p
 
 ## What the two tasks share
 
-The action expert copies the demonstration. Seeing the object does not follow from that. On a GTX 1660 the recipe is fp32, vision frozen or barely unfrozen, language model frozen, batch 2 once the desktop is using about 1 GB. The part that would have to learn where the peg or the ball is does not get trained. More demonstrations of the same frozen tower, a different camera, and a longer action chunk are already recorded as misses.
+The action expert copies the demonstration. Seeing the object does not follow from that. Those runs used a GTX 1660: fp32, vision frozen or barely unfrozen, language model frozen, batch 2 once the desktop was using about 1 GB. The machine is now an RTX 3080, 10 GB, which supports bf16 and a larger batch. The part that would have to learn where the peg or the ball is did not get trained on those runs. More demonstrations of the same frozen tower, a different camera, and a longer action chunk are already recorded as misses.
 
 ## What would make another training run worth starting
 

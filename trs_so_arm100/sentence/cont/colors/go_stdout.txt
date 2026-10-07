@@ -1,0 +1,5 @@
+C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\sentence\cont\colors\collect.py --train-out C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\sentence\cont\colors\datasets\train --val-out C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\sentence\cont\colors\datasets\val
+exit 0 log C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\sentence\cont\colors\datasets\collect_log.txt
+C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\sentence\cont\colors\probe.py --train C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\sentence\cont\colors\datasets\train --val C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\sentence\cont\colors\datasets\val --checkpoint C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\sentence\cont\run1\checkpoints\checkpoints\008000\pretrained_model --out C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\sentence\cont\colors\probe
+exit 0 log C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\sentence\cont\colors\probe\stdout.txt
+probe gate fail; not training

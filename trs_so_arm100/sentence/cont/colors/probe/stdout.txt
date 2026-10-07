@@ -1,0 +1,9 @@
+layout self_check ok
+probe self_check ok
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/489 [00:00<?, ?it/s]Loading weights:  44%|████▍     | 217/489 [00:00<00:00, 2149.60it/s]Loading weights: 100%|██████████| 489/489 [00:00<00:00, 2857.96it/s]
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+word notes (1, 960) words/row 9 lang positions 48
+probe gate fail val 1.000 1.000
