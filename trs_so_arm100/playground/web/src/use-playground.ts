@@ -15,6 +15,13 @@ export type Link = "connecting" | "open" | "closed"
 
 type Action = "orbit" | "pan" | "zoom"
 
+const latestFeeds: (string | null)[] = [null, null, null]
+
+export function attachFeed(index: number, image: HTMLImageElement | null) {
+  const url = latestFeeds[index]
+  if (image && url) image.src = url
+}
+
 const empty: Status = {
   type: "status",
   phase: "loading",
@@ -122,8 +129,12 @@ export function usePlayground(onHero: () => void) {
         const url = URL.createObjectURL(new Blob([bytes.subarray(1)], { type: "image/jpeg" }))
         const previous = urls[index]
         urls[index] = url
+        latestFeeds[index] = url
         const image = images[index].current
         if (image) image.src = url
+        document.querySelectorAll<HTMLImageElement>(`img[data-feed="${index}"]`).forEach((node) => {
+          if (node !== image) node.src = url
+        })
         if (previous) URL.revokeObjectURL(previous)
         if (index === 2) onHeroRef.current()
       }
@@ -148,6 +159,7 @@ export function usePlayground(onHero: () => void) {
       for (const url of urls) {
         if (url) URL.revokeObjectURL(url)
       }
+      latestFeeds.fill(null)
     }
   }, [])
 

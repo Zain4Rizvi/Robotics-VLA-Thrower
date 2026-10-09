@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
-import { useEffect, useRef, useState, type FormEvent, type PointerEvent as ReactPointerEvent, type RefObject } from "react"
+import { lazy, Suspense, useEffect, useRef, useState, type FormEvent, type PointerEvent as ReactPointerEvent, type RefObject } from "react"
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
@@ -9,6 +9,8 @@ import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "@/components/ui/input-group"
 import { Skeleton } from "@/components/ui/skeleton"
 import { usePlayground, type Link, type Phase } from "@/use-playground"
+
+const ModelView = lazy(() => import("@/model/ModelView").then((mod) => ({ default: mod.ModelView })))
 
 gsap.registerPlugin(useGSAP)
 
@@ -21,9 +23,11 @@ function linkBadge(link: Link, phase: Phase): { text: string; variant: "outline"
 
 function PolicyCamera({
   label,
+  feed,
   imgRef,
 }: {
   label: string
+  feed: 0 | 1
   imgRef: RefObject<HTMLImageElement | null>
 }) {
   const [shown, setShown] = useState(false)
@@ -33,6 +37,7 @@ function PolicyCamera({
         {!shown && <Skeleton className="absolute inset-0 size-full rounded-none" />}
         <img
           ref={imgRef}
+          data-feed={feed}
           alt={label}
           draggable={false}
           onLoad={() => setShown(true)}
@@ -53,6 +58,7 @@ export default function App() {
   const drag = useRef<{ id: number; x: number; y: number; button: number } | null>(null)
   const [draft, setDraft] = useState("")
   const [focused, setFocused] = useState(false)
+  const [page, setPage] = useState<"scene" | "model">("scene")
 
   useGSAP(
     (_context, contextSafe) => {
@@ -126,6 +132,7 @@ export default function App() {
 
   return (
     <div ref={root} className="relative h-dvh overflow-hidden bg-background text-foreground">
+      <div hidden={page !== "scene"} className={page === "scene" ? "contents" : undefined}>
       <div
         data-scene
         role="application"
@@ -150,23 +157,6 @@ export default function App() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-background/80 to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background/50 to-transparent" />
 
-      <header className="absolute inset-x-0 top-0 z-10 flex items-start justify-between gap-8 px-7 py-6">
-        <div className="flex flex-col gap-1.5">
-          <p className="font-serif text-[17px] leading-none tracking-tight">SO-ARM100</p>
-          <p className="text-[13px] leading-none text-muted-foreground">Red on green</p>
-        </div>
-        <div className="flex items-center gap-3 font-mono text-[11px] tracking-wide text-muted-foreground">
-          <Badge variant={badge.variant}>{badge.text}</Badge>
-          {status.seed != null && <span className="tabular-nums">seed {status.seed}</span>}
-          {status.phase === "ready" && (
-            <>
-              <span aria-hidden="true">·</span>
-              <span>{status.computing ? "Planning" : "Idle"}</span>
-            </>
-          )}
-        </div>
-      </header>
-
       {status.phase !== "ready" && (
         <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center px-6">
           {status.phase === "error" ? (
@@ -188,8 +178,8 @@ export default function App() {
             What the policy sees
           </p>
           <div className="flex gap-3">
-            <PolicyCamera label="camera1" imgRef={cam1Ref} />
-            <PolicyCamera label="camera2" imgRef={cam2Ref} />
+            <PolicyCamera label="camera1" feed={0} imgRef={cam1Ref} />
+            <PolicyCamera label="camera2" feed={1} imgRef={cam2Ref} />
           </div>
         </div>
 
@@ -230,6 +220,53 @@ export default function App() {
           </FieldGroup>
         </form>
       </div>
+      </div>
+
+      <header className="absolute inset-x-0 top-0 z-30 flex items-start justify-between gap-8 px-7 py-6">
+        <div className="flex flex-col gap-1.5">
+          <p className="font-serif text-[17px] leading-none tracking-tight">SO-ARM100</p>
+          <p className="text-[13px] leading-none text-muted-foreground">Red on green</p>
+        </div>
+        <nav className="absolute left-1/2 top-6 flex -translate-x-1/2 items-center gap-5 font-mono text-[11px] tracking-[0.14em] uppercase">
+          <button
+            type="button"
+            aria-current={page === "scene" ? "page" : undefined}
+            className={page === "scene" ? "text-foreground" : "text-muted-foreground hover:text-foreground"}
+            onClick={() => setPage("scene")}
+          >
+            Scene
+          </button>
+          <button
+            type="button"
+            aria-current={page === "model" ? "page" : undefined}
+            className={page === "model" ? "text-foreground" : "text-muted-foreground hover:text-foreground"}
+            onClick={() => setPage("model")}
+          >
+            Model
+          </button>
+        </nav>
+        <div className="flex items-center gap-3 font-mono text-[11px] tracking-wide text-muted-foreground">
+          <Badge variant={badge.variant}>{badge.text}</Badge>
+          {status.seed != null && <span className="tabular-nums">seed {status.seed}</span>}
+          {status.phase === "ready" && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>{status.computing ? "Planning" : "Idle"}</span>
+            </>
+          )}
+        </div>
+      </header>
+      {page === "model" && (
+        <Suspense
+          fallback={
+            <p className="absolute inset-0 z-20 flex items-center justify-center font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase">
+              Opening
+            </p>
+          }
+        >
+          <ModelView instruction={status.instruction} />
+        </Suspense>
+      )}
     </div>
   )
 }
