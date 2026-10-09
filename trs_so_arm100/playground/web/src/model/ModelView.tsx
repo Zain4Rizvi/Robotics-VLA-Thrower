@@ -50,7 +50,7 @@ export function ModelView({ instruction }: { instruction: string }) {
   )
 
   return (
-    <div ref={root} className="absolute inset-0 z-20 flex flex-col bg-background pt-20">
+    <div ref={root} className="absolute inset-0 z-20 flex flex-col bg-background pt-20 pl-36">
       {block != null && (
         <div className="flex shrink-0 items-center px-7 pb-2">
           <button

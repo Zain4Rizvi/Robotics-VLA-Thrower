@@ -11,6 +11,21 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { usePlayground, type Link, type Phase } from "@/use-playground"
 
 const ModelView = lazy(() => import("@/model/ModelView").then((mod) => ({ default: mod.ModelView })))
+const ExpertView = lazy(() => import("@/model/ExpertView").then((mod) => ({ default: mod.ExpertView })))
+
+const ROBOTS = [
+  { id: "stack", title: "SO-ARM100", subtitle: "Red on green" },
+  { id: "openarm", title: "OpenArm", subtitle: "Multithrow" },
+  { id: "peg", title: "Peg", subtitle: "In the hole" },
+] as const
+
+type RobotId = (typeof ROBOTS)[number]["id"]
+
+const CAMERAS: Record<RobotId, [string, string]> = {
+  stack: ["camera1", "camera2"],
+  openarm: ["headcam", "camera_wrist_right"],
+  peg: ["tablecam", "camera_wrist_right"],
+}
 
 gsap.registerPlugin(useGSAP)
 
@@ -59,6 +74,7 @@ export default function App() {
   const [draft, setDraft] = useState("")
   const [focused, setFocused] = useState(false)
   const [page, setPage] = useState<"scene" | "model">("scene")
+  const [robot, setRobot] = useState<RobotId>("stack")
 
   useGSAP(
     (_context, contextSafe) => {
@@ -86,9 +102,19 @@ export default function App() {
     { scope: root },
   )
 
-  const { status, link, send, nudge, heroRef, cam1Ref, cam2Ref } = usePlayground(() => {
+  const { status, link, send, clearFeeds, nudge, heroRef, cam1Ref, cam2Ref } = usePlayground(() => {
     revealHero.current()
   })
+
+  const selected = ROBOTS.find((item) => item.id === robot) ?? ROBOTS[0]
+  const cameras = CAMERAS[robot]
+
+  function selectRobot(id: RobotId) {
+    if (id === robot) return
+    setRobot(id)
+    clearFeeds()
+    send({ type: "robot", id })
+  }
 
   useEffect(() => {
     if (!focused) setDraft(status.instruction)
@@ -175,14 +201,15 @@ export default function App() {
       <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-4 px-5 py-5 lg:flex-row lg:items-end lg:gap-8 lg:px-7 lg:py-7">
         <div data-enter className="flex shrink-0 flex-col gap-2.5">
           <p className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
-            What the policy sees
+            {robot === "stack" ? "What the policy sees" : "What the expert sees"}
           </p>
           <div className="flex gap-3">
-            <PolicyCamera label="camera1" feed={0} imgRef={cam1Ref} />
-            <PolicyCamera label="camera2" feed={1} imgRef={cam2Ref} />
+            <PolicyCamera key={`${robot}-0`} label={cameras[0]} feed={0} imgRef={cam1Ref} />
+            <PolicyCamera key={`${robot}-1`} label={cameras[1]} feed={1} imgRef={cam2Ref} />
           </div>
         </div>
 
+        {robot === "stack" ? (
         <form data-enter onSubmit={onSubmit} className="w-full lg:mb-5 lg:ml-auto lg:max-w-xl">
           <FieldGroup>
             <Field data-disabled={ready ? undefined : true}>
@@ -219,13 +246,29 @@ export default function App() {
             </Field>
           </FieldGroup>
         </form>
+        ) : (
+          <div data-enter className="flex w-full items-center gap-3 lg:mb-5 lg:ml-auto lg:max-w-xl">
+            <p className="min-w-0 flex-1 font-serif text-[17px] leading-snug">
+              {status.instruction || "Planning the expert"}
+            </p>
+            <Button
+              type="button"
+              variant="outline"
+              className="h-11 shrink-0 bg-background px-4"
+              disabled={!ready}
+              onClick={() => send({ type: "layout" })}
+            >
+              New layout
+            </Button>
+          </div>
+        )}
       </div>
       </div>
 
       <header className="absolute inset-x-0 top-0 z-30 flex items-start justify-between gap-8 px-7 py-6">
         <div className="flex flex-col gap-1.5">
-          <p className="font-serif text-[17px] leading-none tracking-tight">SO-ARM100</p>
-          <p className="text-[13px] leading-none text-muted-foreground">Red on green</p>
+          <p className="font-serif text-[17px] leading-none tracking-tight">{selected.title}</p>
+          <p className="text-[13px] leading-none text-muted-foreground">{selected.subtitle}</p>
         </div>
         <nav className="absolute left-1/2 top-6 flex -translate-x-1/2 items-center gap-5 font-mono text-[11px] tracking-[0.14em] uppercase">
           <button
@@ -256,6 +299,19 @@ export default function App() {
           )}
         </div>
       </header>
+      <nav className="absolute top-24 left-7 z-40 flex flex-col items-start gap-2.5 font-mono text-[11px] tracking-[0.14em] uppercase">
+        {ROBOTS.map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            aria-current={robot === item.id ? "true" : undefined}
+            className={robot === item.id ? "text-foreground" : "text-muted-foreground hover:text-foreground"}
+            onClick={() => selectRobot(item.id)}
+          >
+            {item.title}
+          </button>
+        ))}
+      </nav>
       {page === "model" && (
         <Suspense
           fallback={
@@ -264,7 +320,11 @@ export default function App() {
             </p>
           }
         >
-          <ModelView instruction={status.instruction} />
+          {robot === "stack" ? (
+            <ModelView instruction={status.instruction} />
+          ) : (
+            <ExpertView key={robot} robot={robot} instruction={status.instruction} />
+          )}
         </Suspense>
       )}
     </div>

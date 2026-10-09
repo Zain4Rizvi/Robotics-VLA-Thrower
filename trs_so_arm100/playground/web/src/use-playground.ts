@@ -43,11 +43,27 @@ export function usePlayground(onHero: () => void) {
     onHeroRef.current = onHero
   }, [onHero])
 
+  const urlsRef = useRef<(string | null)[]>([null, null, null])
+
   const send = useCallback((message: object) => {
     const socket = wsRef.current
     if (socket && socket.readyState === WebSocket.OPEN) {
       socket.send(JSON.stringify(message))
     }
+  }, [])
+
+  const clearFeeds = useCallback(() => {
+    for (const url of urlsRef.current) {
+      if (url) URL.revokeObjectURL(url)
+    }
+    urlsRef.current = [null, null, null]
+    latestFeeds.fill(null)
+    for (const image of [cam1Ref.current, cam2Ref.current, heroRef.current]) {
+      image?.removeAttribute("src")
+    }
+    document.querySelectorAll<HTMLImageElement>("img[data-feed]").forEach((node) => {
+      node.removeAttribute("src")
+    })
   }, [])
 
   const pending = useRef({
@@ -101,7 +117,6 @@ export function usePlayground(onHero: () => void) {
     let stopped = false
     let socket: WebSocket | null = null
     let timer = 0
-    const urls: (string | null)[] = [null, null, null]
     const images = [cam1Ref, cam2Ref, heroRef]
 
     const connect = () => {
@@ -127,8 +142,8 @@ export function usePlayground(onHero: () => void) {
         const index = bytes[0]
         if (index > 2) return
         const url = URL.createObjectURL(new Blob([bytes.subarray(1)], { type: "image/jpeg" }))
-        const previous = urls[index]
-        urls[index] = url
+        const previous = urlsRef.current[index]
+        urlsRef.current[index] = url
         latestFeeds[index] = url
         const image = images[index].current
         if (image) image.src = url
@@ -156,12 +171,12 @@ export function usePlayground(onHero: () => void) {
       hero?.removeEventListener("wheel", onWheel)
       socket?.close()
       wsRef.current = null
-      for (const url of urls) {
+      for (const url of urlsRef.current) {
         if (url) URL.revokeObjectURL(url)
       }
       latestFeeds.fill(null)
     }
   }, [])
 
-  return { status, link, send, nudge, heroRef, cam1Ref, cam2Ref }
+  return { status, link, send, clearFeeds, nudge, heroRef, cam1Ref, cam2Ref }
 }

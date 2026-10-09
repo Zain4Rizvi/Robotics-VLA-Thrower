@@ -66,7 +66,8 @@ def drive(sim, pump, renderer, commands, task, *, alive, on_sync, relayout):
 
     `alive` is checked each tick. `on_sync` runs after the physics step.
     `relayout` resets the cubes and interrupts the in-flight chunk.
-    Commands are ``q``, ``r``, or an instruction string.
+    Commands are ``q``, ``r``, ``switch``, or an instruction string.
+    ``switch`` returns so the playground can change robots. The native viewer never sends it.
     """
 
     def capture():
@@ -83,6 +84,8 @@ def drive(sim, pump, renderer, commands, task, *, alive, on_sync, relayout):
         cmd = None if commands.empty() else commands.get()
         if cmd == "q":
             break
+        if cmd == "switch":
+            return task
         if cmd == "r":
             relayout()
         elif cmd:
