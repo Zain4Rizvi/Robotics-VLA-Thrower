@@ -12,3 +12,5 @@ wandb/
 uv.lock.bak
 trs_so_arm100/playground/web/node_modules/
 trs_so_arm100/playground/web/dist/
+frontend/node_modules/
+frontend/dist/
