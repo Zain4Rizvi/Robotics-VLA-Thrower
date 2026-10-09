@@ -15,8 +15,8 @@ const ExpertView = lazy(() => import("@/model/ExpertView").then((mod) => ({ defa
 
 const ROBOTS = [
   { id: "stack", title: "SO-ARM100", subtitle: "Red on green" },
-  { id: "openarm", title: "OpenArm", subtitle: "Multithrow" },
-  { id: "peg", title: "Peg", subtitle: "In the hole" },
+  { id: "openarm", title: "Multithrow", subtitle: "OpenArm" },
+  { id: "peg", title: "Peg", subtitle: "OpenArm" },
 ] as const
 
 type RobotId = (typeof ROBOTS)[number]["id"]

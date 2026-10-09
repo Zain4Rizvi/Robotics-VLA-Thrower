@@ -119,11 +119,11 @@ function Overview({
           Select a stretch
         </p>
       </div>
-      <div className="grid min-h-0 flex-1 gap-4 lg:grid-cols-[9rem_minmax(0,1fr)]">
-        <div data-model className="flex h-14 shrink-0 gap-2">
+      <div className="grid min-h-0 flex-1 grid-cols-[10.5rem_minmax(0,1fr)] items-stretch gap-3">
+        <div data-model className="flex min-h-0 flex-col gap-2">
           <Camera feed={0} />
           <Camera feed={1} />
-          <p className="line-clamp-3 font-serif text-[15px] leading-snug">{instruction || "Planning the expert"}</p>
+          <p className="line-clamp-2 shrink-0 font-serif text-[15px] leading-snug">{instruction || "Planning the expert"}</p>
         </div>
         <figure data-model className="flex min-h-0 flex-col gap-2">
           <div className="min-h-72 flex-1 border border-border">
@@ -169,8 +169,14 @@ function Camera({ feed }: { feed: 0 | 1 }) {
     attachFeed(feed, image.current)
   }, [feed])
   return (
-    <span className="block h-14 w-24 overflow-hidden border border-foreground/15">
-      <img ref={image} data-feed={feed} alt="" draggable={false} className="size-full object-cover" />
+    <span className="block min-h-0 flex-1 overflow-hidden border border-foreground/15">
+      <img
+        ref={image}
+        data-feed={feed}
+        alt={feed === 0 ? "front camera" : "wrist camera"}
+        draggable={false}
+        className="size-full object-cover"
+      />
     </span>
   )
 }
