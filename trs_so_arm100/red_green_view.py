@@ -61,6 +61,50 @@ def predict(policy, pre, post, images, degrees, task, xy):
     return post(actions)[0].detach().cpu().numpy()
 
 
+def drive(sim, pump, renderer, commands, task, *, alive, on_sync, relayout):
+    """30 Hz loop shared by the native viewer and the playground.
+
+    `alive` is checked each tick. `on_sync` runs after the physics step.
+    `relayout` resets the cubes and interrupts the in-flight chunk.
+    Commands are ``q``, ``r``, or an instruction string.
+    """
+
+    def capture():
+        images = {}
+        for name in ("camera1", "camera2"):
+            renderer.update_scene(sim.data, camera=name)
+            images[name] = renderer.render().copy()
+        xy = view.zscore_xy(sim.red_pos()[:2], sim.green_pos()[:2])
+        return images, sim.degrees(), xy
+
+    period = 1.0 / view.CTRL_HZ
+    next_tick = time.perf_counter()
+    while alive():
+        cmd = None if commands.empty() else commands.get()
+        if cmd == "q":
+            break
+        if cmd == "r":
+            relayout()
+        elif cmd:
+            task = cmd
+            pump.interrupt()
+            print(f"instruction -> {task!r}", flush=True)
+
+        action = pump.next_action(capture, task)
+        if action is None:
+            sim.step(sim.data.qpos[:6].copy())
+        else:
+            sim.step(view.degrees_to_ctrl(action, sim.limits))
+        on_sync()
+        next_tick += period
+        delay = next_tick - time.perf_counter()
+        if delay > 0:
+            time.sleep(delay)
+        else:
+            next_tick = time.perf_counter()
+    return task
+
+
 def main() -> None:
     configure_fp32()
     ckpt = latest_pretrained()
@@ -80,14 +124,6 @@ def main() -> None:
     rng = np.random.default_rng()
     pump = view.ChunkPump(policy, pre, post)
 
-    def capture():
-        images = {}
-        for name in ("camera1", "camera2"):
-            renderer.update_scene(sim.data, camera=name)
-            images[name] = renderer.render().copy()
-        xy = view.zscore_xy(sim.red_pos()[:2], sim.green_pos()[:2])
-        return images, sim.degrees(), xy
-
     def new_layout() -> None:
         seed = int(rng.integers(0, 2**31))
         sim.reset(seed)
@@ -100,34 +136,18 @@ def main() -> None:
 
     cmds: queue.Queue = queue.Queue()
     threading.Thread(target=view.read_stdin, args=(cmds,), daemon=True).start()
-    task = view.INSTRUCTION
-    period = 1.0 / view.CTRL_HZ
-    next_tick = time.perf_counter()
     try:
         with mujoco.viewer.launch_passive(sim.model, sim.data) as viewer:
-            while viewer.is_running():
-                cmd = None if cmds.empty() else cmds.get()
-                if cmd == "q":
-                    break
-                if cmd == "r":
-                    new_layout()
-                elif cmd:
-                    task = cmd
-                    pump.interrupt()
-                    print(f"instruction -> {task!r}", flush=True)
-
-                action = pump.next_action(capture, task)
-                if action is None:
-                    sim.step(sim.data.qpos[:6].copy())
-                else:
-                    sim.step(view.degrees_to_ctrl(action, sim.limits))
-                viewer.sync()
-                next_tick += period
-                delay = next_tick - time.perf_counter()
-                if delay > 0:
-                    time.sleep(delay)
-                else:
-                    next_tick = time.perf_counter()
+            drive(
+                sim,
+                pump,
+                renderer,
+                cmds,
+                view.INSTRUCTION,
+                alive=viewer.is_running,
+                on_sync=viewer.sync,
+                relayout=new_layout,
+            )
     finally:
         pump.close()
         renderer.close()
