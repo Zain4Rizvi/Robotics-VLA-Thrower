@@ -1,0 +1,20 @@
+train self_check ok
+connector train self_check ok
+gpu memory used 1948 MB -> batch 16
+dims 6:32 forced to zero; xy.npz is not read
+lerobot-train --policy.path=C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\connector\init --dataset.repo_id=local/train --dataset.root=C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\color\swap\datasets\train --dataset.video_backend=pyav --policy.device=cuda --policy.use_amp=false --policy.push_to_hub=false --policy.freeze_vision_encoder=true --policy.train_expert_only=true --policy.optimizer_lr=1.0e-4 --policy.scheduler_decay_lr=2.5e-6 --policy.scheduler_warmup_steps=100 --policy.scheduler_decay_steps=2000 --batch_size=16 --steps=2000 --save_freq=500 --log_freq=50 --num_workers=0 --output_dir=C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\connector\checkpoints --wandb.enable=false
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+trainable 111677472 connector 11796480 action_expert 98245840 state_proj 31680
+joint normalizer kept [4.951726913452148, 89.34123229980469, 95.66333770751953, 89.38887786865234, -94.94136047363281, 20.297988891601562]
+trainable 111677472 connector 11796480 action_expert 98245840 state_proj 31680
+state_proj (960, 32) dims 6:32 abs sum 0.000
+connector gradient is nonzero
+[val] step 500: val_loss=0.0794 n=5738
+step rate 28.15 min per 1000 steps (from 14.07 min for 500 steps, including val)
+budget {'requested_steps': 2000, 'steps': 2000, 'cut': False, 'minutes_for_measure': 14.072929440000006, 'minutes_per_1000': 28.145858880000013, 'measured_at_step': 500, 'batch_size': 16}
+[val] step 1000: val_loss=0.0675 n=5738
+[val] step 1500: val_loss=0.0628 n=5738
+[val] step 2000: val_loss=0.0584 n=5738
+{"steps": 2000, "batch": 16, "gpu_used_mb_at_start": 1948, "limit": null}

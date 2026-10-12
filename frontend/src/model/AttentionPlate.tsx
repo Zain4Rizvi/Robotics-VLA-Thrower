@@ -3,17 +3,17 @@ import { plate, type BlockId } from "@/model/facts"
 export function AttentionPlate({ block, layer }: { block: BlockId; layer: number }) {
   const spec = plate(block, layer)
   return (
-    <figure className="flex min-w-0 flex-col gap-3">
+    <figure className="flex h-full w-full min-w-0 flex-col gap-4">
       <figcaption className="flex items-baseline justify-between gap-4">
         <span className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
           Attention mask
         </span>
         <span className="font-mono text-[10px] text-muted-foreground">queries ↓ · keys →</span>
       </figcaption>
-      <div className="overflow-x-auto">
+      <div className="w-full min-w-0">
         <div
-          className="grid w-max gap-px"
-          style={{ gridTemplateColumns: `auto repeat(${spec.cols.length}, minmax(1.4rem, 1fr))` }}
+          className="grid w-full gap-1"
+          style={{ gridTemplateColumns: `auto repeat(${spec.cols.length}, minmax(0, 1fr))` }}
         >
           <span />
           {spec.cols.map((label) => (
@@ -49,7 +49,7 @@ function Row({
       {cols.map((col, index) => (
         <span
           key={`${label}-${col}`}
-          className={on(index) ? "size-5 bg-foreground/80" : "size-5 bg-foreground/10"}
+          className={on(index) ? "aspect-square w-full bg-foreground/80" : "aspect-square w-full bg-foreground/10"}
         />
       ))}
     </>

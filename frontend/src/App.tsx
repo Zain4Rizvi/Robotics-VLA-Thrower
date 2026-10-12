@@ -1,13 +1,11 @@
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
-import { lazy, Suspense, useEffect, useRef, useState, type FormEvent, type PointerEvent as ReactPointerEvent } from "react"
+import { lazy, Suspense, useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
-import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "@/components/ui/input-group"
 import { Skeleton } from "@/components/ui/skeleton"
-import { usePlayback, type RobotId } from "@/use-playback"
+import { STACK_PROMPTS, usePlayback, type RobotId } from "@/use-playback"
 
 const ModelView = lazy(() => import("@/model/ModelView").then((mod) => ({ default: mod.ModelView })))
 const ExpertView = lazy(() => import("@/model/ExpertView").then((mod) => ({ default: mod.ExpertView })))
@@ -22,6 +20,21 @@ const CAMERAS: Record<RobotId, [string, string]> = {
   stack: ["camera1", "camera2"],
   openarm: ["headcam", "camera_wrist_right"],
   peg: ["tablecam", "camera_wrist_right"],
+}
+
+const NOTES: Record<RobotId, { label: string; body: string }> = {
+  stack: {
+    label: "Vision-language-action",
+    body: "Determines movement given only camera and text",
+  },
+  openarm: {
+    label: "Scripted expert",
+    body: "It is given the ball and the bin, then plans the throw.",
+  },
+  peg: {
+    label: "Scripted expert",
+    body: "It is given the peg and the socket, then plans the insert.",
+  },
 }
 
 gsap.registerPlugin(useGSAP)
@@ -51,8 +64,6 @@ export default function App() {
   const revealed = useRef(false)
   const revealHero = useRef<() => void>(() => {})
   const drag = useRef<{ id: number; x: number; y: number; button: number } | null>(null)
-  const [draft, setDraft] = useState("")
-  const [focused, setFocused] = useState(false)
   const [page, setPage] = useState<"scene" | "model">("scene")
   const { robot, ready, message, instruction, seed, selectRobot, submitInstruction, nextLayout, nudge } =
     usePlayback(canvasRef)
@@ -86,19 +97,15 @@ export default function App() {
     if (ready) revealHero.current()
   }, [ready])
 
-  useEffect(() => {
-    if (!focused) setDraft(instruction)
-  }, [focused, instruction])
-
   const selected = ROBOTS.find((item) => item.id === robot) ?? ROBOTS[0]
   const cameras = CAMERAS[robot]
-
-  function onSubmit(event: FormEvent) {
-    event.preventDefault()
-    const text = draft.trim()
-    if (!text || !ready) return
-    submitInstruction(text)
-  }
+  const note = NOTES[robot]
+  const subtitle =
+    robot === "stack"
+      ? instruction === STACK_PROMPTS[1]
+        ? "Green on red"
+        : "Red on green"
+      : selected.subtitle
 
   function onPointerDown(event: ReactPointerEvent<HTMLDivElement>) {
     if (event.button !== 0 && event.button !== 2) return
@@ -171,42 +178,30 @@ export default function App() {
           </div>
 
           {robot === "stack" ? (
-            <form data-enter onSubmit={onSubmit} className="w-full lg:mb-5 lg:ml-auto lg:max-w-xl">
-              <FieldGroup>
-                <Field data-disabled={ready ? undefined : true}>
-                  <FieldLabel htmlFor="instruction" className="sr-only">
-                    Instruction
-                  </FieldLabel>
-                  <div className="flex items-center gap-3">
-                    <InputGroup className="h-11 bg-background">
-                      <InputGroupInput
-                        id="instruction"
-                        value={draft}
-                        disabled={!ready}
-                        placeholder="stack the red cube on the green cube"
-                        onFocus={() => setFocused(true)}
-                        onBlur={() => setFocused(false)}
-                        onChange={(event) => setDraft(event.target.value)}
-                      />
-                      <InputGroupAddon align="inline-end">
-                        <InputGroupButton type="submit" variant="default" size="sm" disabled={!ready}>
-                          Set
-                        </InputGroupButton>
-                      </InputGroupAddon>
-                    </InputGroup>
-                    <Button
-                      type="button"
-                      variant="outline"
-                      className="h-11 bg-background px-4"
-                      disabled={!ready}
-                      onClick={nextLayout}
-                    >
-                      New layout
-                    </Button>
-                  </div>
-                </Field>
-              </FieldGroup>
-            </form>
+            <div data-enter className="flex w-full flex-wrap items-center gap-3 lg:mb-5 lg:ml-auto lg:max-w-3xl lg:justify-end">
+              {STACK_PROMPTS.map((text) => (
+                <Button
+                  key={text}
+                  type="button"
+                  variant={instruction === text ? "default" : "outline"}
+                  className={instruction === text ? "h-11 px-4" : "h-11 bg-background px-4"}
+                  disabled={!ready}
+                  aria-pressed={instruction === text}
+                  onClick={() => submitInstruction(text)}
+                >
+                  {text}
+                </Button>
+              ))}
+              <Button
+                type="button"
+                variant="outline"
+                className="h-11 bg-background px-4"
+                disabled={!ready}
+                onClick={nextLayout}
+              >
+                New layout
+              </Button>
+            </div>
           ) : (
             <div data-enter className="flex w-full items-center gap-3 lg:mb-5 lg:ml-auto lg:max-w-xl">
               <p className="min-w-0 flex-1 font-serif text-[17px] leading-snug">{instruction || "Planning the expert"}</p>
@@ -227,7 +222,7 @@ export default function App() {
       <header className="absolute inset-x-0 top-0 z-30 flex items-start justify-between gap-8 px-7 py-6">
         <div className="flex flex-col gap-1.5">
           <p className="font-serif text-[17px] leading-none tracking-tight">{selected.title}</p>
-          <p className="text-[13px] leading-none text-muted-foreground">{selected.subtitle}</p>
+          <p className="text-[13px] leading-none text-muted-foreground">{subtitle}</p>
         </div>
         <nav className="absolute left-1/2 top-6 flex -translate-x-1/2 items-center gap-5 font-mono text-[11px] tracking-[0.14em] uppercase">
           <button
@@ -247,14 +242,22 @@ export default function App() {
             Model
           </button>
         </nav>
-        <div className="flex items-center gap-3 font-mono text-[11px] tracking-wide text-muted-foreground">
-          <Badge variant="outline">{ready ? "Replay" : "Loading"}</Badge>
-          {seed != null && <span className="tabular-nums">seed {seed}</span>}
-          {ready && (
-            <>
-              <span aria-hidden="true">·</span>
-              <span>Idle</span>
-            </>
+        <div className="flex flex-col items-end gap-5">
+          <div className="flex items-center gap-3 font-mono text-[11px] tracking-wide text-muted-foreground">
+            <Badge variant="outline">{ready ? "Replay" : "Loading"}</Badge>
+            {seed != null && <span className="tabular-nums">seed {seed}</span>}
+            {ready && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>Idle</span>
+              </>
+            )}
+          </div>
+          {page === "scene" && (
+            <aside className="hidden w-48 text-right sm:block">
+              <p className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">{note.label}</p>
+              <p className="mt-2 text-[13px] leading-snug text-foreground/80">{note.body}</p>
+            </aside>
           )}
         </div>
       </header>

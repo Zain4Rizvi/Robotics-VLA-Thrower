@@ -105,8 +105,8 @@ function Detail({
       {count === 0 ? (
         <Connector />
       ) : (
-        <div className="grid min-h-[28rem] flex-1 gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-          <div data-model className="flex min-h-80 flex-col border border-border">
+        <div className="grid min-h-[36rem] flex-1 gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+          <div data-model className="flex min-h-[32rem] flex-col border border-border">
             <div className="flex items-center justify-between px-4 py-3">
               <p className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
                 Layer {layer + 1} of {count}
@@ -132,7 +132,7 @@ function Detail({
               ))}
             </div>
           </div>
-          <div data-model className="border border-border p-5">
+          <div data-model className="min-w-0 border border-border p-5">
             <AttentionPlate block={block} layer={layer} />
           </div>
         </div>
@@ -143,7 +143,7 @@ function Detail({
 
 function Connector() {
   return (
-    <div data-model className="grid max-w-3xl gap-4 border border-border p-5 sm:grid-cols-3">
+    <div data-model className="grid gap-8 border border-border p-8 sm:grid-cols-3">
       <Step k="1024 × 768" v="Patches out of SigLIP" />
       <Step k="64 × 12288" v="Each 4×4 group, packed" />
       <Step k="64 × 960" v="One linear map, no bias" />
@@ -154,8 +154,8 @@ function Connector() {
 function Step({ k, v }: { k: string; v: string }) {
   return (
     <div>
-      <p className="font-mono text-[13px] text-foreground">{k}</p>
-      <p className="mt-1 text-[13px] text-muted-foreground">{v}</p>
+      <p className="font-serif text-3xl tracking-tight text-foreground">{k}</p>
+      <p className="mt-2 text-[14px] text-muted-foreground">{v}</p>
     </div>
   )
 }

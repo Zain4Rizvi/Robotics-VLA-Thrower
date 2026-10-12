@@ -1,0 +1,12 @@
+self_check_train exit 0
+self_check_eval exit 0
+init already at C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\camera_text\init
+step0 exit 0
+train pid 29624 batch 8
+free VRAM 3178 MB after 21 steps
+at least 1 GB free; stopping to try batch 16
+train pid 23508 batch 16
+copied init to C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\camera_text\checkpoints\checkpoints\000000\pretrained_model
+train exit 0 batch 16
+eval exit 0
+camera_text finished

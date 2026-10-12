@@ -95,7 +95,7 @@ export function LayerStack({
 
   return (
     <div
-      className="relative h-80 flex-1 cursor-grab touch-none active:cursor-grabbing"
+      className="relative min-h-[28rem] flex-1 cursor-grab touch-none active:cursor-grabbing"
       onPointerDown={(event) => {
         drag.current = { x: event.clientX, yaw: yaw.current }
         moved.current = false
@@ -115,7 +115,7 @@ export function LayerStack({
         window.addEventListener("pointerup", up)
       }}
     >
-      <Canvas camera={{ position: [1.7, 0.85, 7.4], fov: 24 }} gl={{ alpha: true, antialias: true }}>
+      <Canvas camera={{ position: [1.15, 0.55, 4.4], fov: 26 }} gl={{ alpha: true, antialias: true }}>
         <ambientLight intensity={1.1} />
         <directionalLight position={[4, 5, 3]} intensity={1.6} />
         <Slabs

@@ -1,0 +1,100 @@
+eval self_check ok
+skip checkpoint step 0
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+checkpoint step 500 C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\connector\checkpoints\checkpoints\000500\pretrained_model
+seed 30000: stack=True grasp=True drop=False failure=stack closest_cm=0.8 task='stack the red cube on the green cube'
+seed 30001: stack=False grasp=False drop=False failure=never_grasped closest_cm=18.0 task='stack the red cube on the green cube'
+seed 30002: stack=False grasp=True drop=True failure=reached_not_held closest_cm=0.4 task='stack the red cube on the green cube'
+seed 30003: stack=False grasp=False drop=False failure=never_grasped closest_cm=21.0 task='stack the red cube on the green cube'
+seed 30004: stack=False grasp=False drop=False failure=never_grasped closest_cm=8.2 task='stack the red cube on the green cube'
+seed 30005: stack=False grasp=False drop=False failure=never_grasped closest_cm=22.7 task='stack the red cube on the green cube'
+seed 30006: stack=False grasp=False drop=False failure=never_grasped closest_cm=10.7 task='stack the red cube on the green cube'
+seed 30007: stack=False grasp=True drop=False failure=grasped_not_placed closest_cm=2.5 task='stack the red cube on the green cube'
+seed 30008: stack=False grasp=False drop=False failure=never_grasped closest_cm=10.8 task='stack the red cube on the green cube'
+seed 30009: stack=False grasp=False drop=False failure=never_grasped closest_cm=10.8 task='stack the red cube on the green cube'
+seed 30000: stack=False grasp=False drop=False failure=never_grasped closest_cm=6.1 task='stack the green cube on the red cube'
+seed 30001: stack=False grasp=False drop=False failure=never_grasped closest_cm=18.1 task='stack the green cube on the red cube'
+seed 30002: stack=False grasp=False drop=False failure=never_grasped closest_cm=16.0 task='stack the green cube on the red cube'
+seed 30003: stack=False grasp=False drop=False failure=never_grasped closest_cm=6.1 task='stack the green cube on the red cube'
+seed 30004: stack=False grasp=False drop=False failure=never_grasped closest_cm=9.5 task='stack the green cube on the red cube'
+seed 30005: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=4.8 task='stack the green cube on the red cube'
+seed 30006: stack=False grasp=False drop=False failure=never_grasped closest_cm=11.2 task='stack the green cube on the red cube'
+seed 30007: stack=False grasp=False drop=False failure=never_grasped closest_cm=13.7 task='stack the green cube on the red cube'
+seed 30008: stack=False grasp=False drop=False failure=never_grasped closest_cm=7.9 task='stack the green cube on the red cube'
+seed 30009: stack=False grasp=False drop=False failure=never_grasped closest_cm=10.8 task='stack the green cube on the red cube'
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+checkpoint step 1000 C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\connector\checkpoints\checkpoints\001000\pretrained_model
+seed 30000: stack=True grasp=True drop=False failure=stack closest_cm=0.8 task='stack the red cube on the green cube'
+seed 30001: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=1.8 task='stack the red cube on the green cube'
+seed 30002: stack=False grasp=False drop=False failure=never_grasped closest_cm=16.0 task='stack the red cube on the green cube'
+seed 30003: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=3.3 task='stack the red cube on the green cube'
+seed 30004: stack=False grasp=False drop=False failure=never_grasped closest_cm=8.7 task='stack the red cube on the green cube'
+seed 30005: stack=False grasp=False drop=False failure=never_grasped closest_cm=5.0 task='stack the red cube on the green cube'
+seed 30006: stack=True grasp=True drop=False failure=stack closest_cm=0.8 task='stack the red cube on the green cube'
+seed 30007: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=6.1 task='stack the red cube on the green cube'
+seed 30008: stack=False grasp=False drop=False failure=never_grasped closest_cm=10.3 task='stack the red cube on the green cube'
+seed 30009: stack=False grasp=True drop=False failure=grasped_not_placed closest_cm=10.8 task='stack the red cube on the green cube'
+seed 30000: stack=False grasp=False drop=False failure=never_grasped closest_cm=11.4 task='stack the green cube on the red cube'
+seed 30001: stack=False grasp=False drop=False failure=never_grasped closest_cm=4.5 task='stack the green cube on the red cube'
+seed 30002: stack=True grasp=True drop=False failure=stack closest_cm=0.3 task='stack the green cube on the red cube'
+seed 30003: stack=False grasp=False drop=False failure=never_grasped closest_cm=20.4 task='stack the green cube on the red cube'
+seed 30004: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=8.8 task='stack the green cube on the red cube'
+seed 30005: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=1.9 task='stack the green cube on the red cube'
+seed 30006: stack=False grasp=False drop=False failure=never_grasped closest_cm=6.2 task='stack the green cube on the red cube'
+seed 30007: stack=True grasp=True drop=False failure=stack closest_cm=0.7 task='stack the green cube on the red cube'
+seed 30008: stack=True grasp=True drop=False failure=stack closest_cm=0.7 task='stack the green cube on the red cube'
+seed 30009: stack=False grasp=False drop=False failure=never_grasped closest_cm=7.6 task='stack the green cube on the red cube'
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+checkpoint step 1500 C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\connector\checkpoints\checkpoints\001500\pretrained_model
+seed 30000: stack=False grasp=False drop=False failure=never_grasped closest_cm=6.2 task='stack the red cube on the green cube'
+seed 30001: stack=True grasp=True drop=False failure=stack closest_cm=1.1 task='stack the red cube on the green cube'
+seed 30002: stack=False grasp=False drop=False failure=never_grasped closest_cm=16.0 task='stack the red cube on the green cube'
+seed 30003: stack=False grasp=True drop=False failure=reached_not_held closest_cm=0.5 task='stack the red cube on the green cube'
+seed 30004: stack=False grasp=False drop=False failure=never_grasped closest_cm=8.1 task='stack the red cube on the green cube'
+seed 30005: stack=False grasp=False drop=False failure=never_grasped closest_cm=4.8 task='stack the red cube on the green cube'
+seed 30006: stack=False grasp=False drop=False failure=never_grasped closest_cm=10.7 task='stack the red cube on the green cube'
+seed 30007: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=2.0 task='stack the red cube on the green cube'
+seed 30008: stack=False grasp=False drop=False failure=never_grasped closest_cm=10.8 task='stack the red cube on the green cube'
+seed 30009: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=2.0 task='stack the red cube on the green cube'
+seed 30000: stack=False grasp=False drop=False failure=never_grasped closest_cm=11.4 task='stack the green cube on the red cube'
+seed 30001: stack=False grasp=False drop=False failure=never_grasped closest_cm=6.0 task='stack the green cube on the red cube'
+seed 30002: stack=False grasp=False drop=False failure=never_grasped closest_cm=16.0 task='stack the green cube on the red cube'
+seed 30003: stack=False grasp=False drop=False failure=never_grasped closest_cm=21.5 task='stack the green cube on the red cube'
+seed 30004: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=8.9 task='stack the green cube on the red cube'
+seed 30005: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=4.6 task='stack the green cube on the red cube'
+seed 30006: stack=False grasp=False drop=False failure=never_grasped closest_cm=10.4 task='stack the green cube on the red cube'
+seed 30007: stack=False grasp=False drop=False failure=never_grasped closest_cm=14.3 task='stack the green cube on the red cube'
+seed 30008: stack=False grasp=False drop=False failure=never_grasped closest_cm=10.0 task='stack the green cube on the red cube'
+seed 30009: stack=False grasp=False drop=False failure=never_grasped closest_cm=10.8 task='stack the green cube on the red cube'
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+checkpoint step 2000 C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\connector\checkpoints\checkpoints\002000\pretrained_model
+seed 30000: stack=True grasp=True drop=False failure=stack closest_cm=0.5 task='stack the red cube on the green cube'
+seed 30001: stack=True grasp=True drop=False failure=stack closest_cm=1.2 task='stack the red cube on the green cube'
+seed 30002: stack=False grasp=False drop=False failure=never_grasped closest_cm=16.0 task='stack the red cube on the green cube'
+seed 30003: stack=False grasp=False drop=False failure=never_grasped closest_cm=6.0 task='stack the red cube on the green cube'
+seed 30004: stack=False grasp=False drop=False failure=never_grasped closest_cm=9.5 task='stack the red cube on the green cube'
+seed 30005: stack=False grasp=False drop=False failure=never_grasped closest_cm=4.6 task='stack the red cube on the green cube'
+seed 30006: stack=False grasp=False drop=False failure=never_grasped closest_cm=11.2 task='stack the red cube on the green cube'
+seed 30007: stack=False grasp=False drop=False failure=never_grasped closest_cm=14.3 task='stack the red cube on the green cube'
+seed 30008: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=4.9 task='stack the red cube on the green cube'
+seed 30009: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=1.8 task='stack the red cube on the green cube'
+seed 30000: stack=False grasp=False drop=False failure=never_grasped closest_cm=6.0 task='stack the green cube on the red cube'
+seed 30001: stack=False grasp=False drop=False failure=never_grasped closest_cm=6.0 task='stack the green cube on the red cube'
+seed 30002: stack=True grasp=True drop=False failure=stack closest_cm=0.6 task='stack the green cube on the red cube'
+seed 30003: stack=True grasp=True drop=False failure=stack closest_cm=0.9 task='stack the green cube on the red cube'
+seed 30004: stack=False grasp=True drop=True failure=grasped_then_dropped closest_cm=9.3 task='stack the green cube on the red cube'
+seed 30005: stack=False grasp=False drop=False failure=never_grasped closest_cm=22.7 task='stack the green cube on the red cube'
+seed 30006: stack=False grasp=False drop=False failure=never_grasped closest_cm=11.2 task='stack the green cube on the red cube'
+seed 30007: stack=False grasp=False drop=False failure=never_grasped closest_cm=6.0 task='stack the green cube on the red cube'
+seed 30008: stack=False grasp=False drop=False failure=never_grasped closest_cm=10.8 task='stack the green cube on the red cube'
+seed 30009: stack=False grasp=False drop=False failure=never_grasped closest_cm=4.5 task='stack the green cube on the red cube'
+step2000 red_on_green stacks=2 grasps=4 green_on_red stacks=2 grasps=3
+wrote C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\connector\REPORT.md

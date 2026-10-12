@@ -1,0 +1,29 @@
+train self_check ok
+gpu memory used 1885 MB -> batch 16
+dims 6:32 forced to zero; xy.npz is not read
+lerobot-train --policy.path=C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\camera_text\init --dataset.repo_id=local/train --dataset.root=C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\color\swap\datasets\train --dataset.video_backend=pyav --policy.device=cuda --policy.use_amp=false --policy.push_to_hub=false --policy.freeze_vision_encoder=true --policy.train_expert_only=true --policy.optimizer_lr=1.0e-4 --policy.scheduler_decay_lr=2.5e-6 --policy.scheduler_warmup_steps=100 --policy.scheduler_decay_steps=8000 --batch_size=16 --steps=8000 --save_freq=2000 --log_freq=50 --num_workers=0 --output_dir=C:\Users\Zain\Documents\Robotics-VLA-Thrower\trs_so_arm100\camera_text\checkpoints --wandb.enable=false
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+trainable 99880992 action_expert 98245840 state_proj 31680
+joint normalizer kept [4.951726913452148, 89.34123229980469, 95.66333770751953, 89.38887786865234, -94.94136047363281, 20.297988891601562]
+state_proj (960, 32) dims 6:32 abs sum 0.000
+[val] step 500: val_loss=0.0900 n=5738
+[val] step 1000: val_loss=0.0946 n=5738
+step rate 28.13 min per 1000 steps (wall clock, including val)
+budget {'requested_steps': 8000, 'steps': 8000, 'cut': False, 'minutes_per_1000': 28.12542561666669, 'measured_at_step': 1000, 'batch_size': 16}
+[val] step 1500: val_loss=0.0847 n=5738
+[val] step 2000: val_loss=0.0798 n=5738
+[val] step 2500: val_loss=0.0755 n=5738
+[val] step 3000: val_loss=0.0694 n=5738
+[val] step 3500: val_loss=0.0693 n=5738
+[val] step 4000: val_loss=0.0653 n=5738
+[val] step 4500: val_loss=0.0655 n=5738
+[val] step 5000: val_loss=0.0627 n=5738
+[val] step 5500: val_loss=0.0628 n=5738
+[val] step 6000: val_loss=0.0608 n=5738
+[val] step 6500: val_loss=0.0611 n=5738
+[val] step 7000: val_loss=0.0627 n=5738
+[val] step 7500: val_loss=0.0618 n=5738
+[val] step 8000: val_loss=0.0624 n=5738
+{"steps": 8000, "batch": 16, "gpu_used_mb_at_start": 1885, "limit": null}

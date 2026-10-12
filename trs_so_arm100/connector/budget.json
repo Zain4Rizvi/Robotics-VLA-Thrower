@@ -1,0 +1,9 @@
+{
+  "requested_steps": 2000,
+  "steps": 2000,
+  "cut": false,
+  "minutes_for_measure": 14.072929440000006,
+  "minutes_per_1000": 28.145858880000013,
+  "measured_at_step": 500,
+  "batch_size": 16
+}

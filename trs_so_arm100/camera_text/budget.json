@@ -1,0 +1,8 @@
+{
+  "requested_steps": 8000,
+  "steps": 8000,
+  "cut": false,
+  "minutes_per_1000": 28.12542561666669,
+  "measured_at_step": 1000,
+  "batch_size": 16
+}

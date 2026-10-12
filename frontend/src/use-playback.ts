@@ -6,8 +6,10 @@ import { publishFeed } from "@/use-playground"
 
 export type RobotId = "stack" | "openarm" | "peg"
 
-const RED = "stack the red cube on the green cube"
-const GREEN = "stack the green cube on the red cube"
+export const STACK_PROMPTS = [
+  "stack the red cube on the green cube",
+  "stack the green cube on the red cube",
+] as const
 
 type Rgba = { name: string; rgba: number[] }
 type BodyPose = { name: string; pos: number[]; quat: number[] }
@@ -62,7 +64,7 @@ export function usePlayback(canvasRef: RefObject<HTMLCanvasElement | null>) {
   const [robot, setRobot] = useState<RobotId>("stack")
   const [ready, setReady] = useState(false)
   const [message, setMessage] = useState("Loading")
-  const [instruction, setInstructionText] = useState(RED)
+  const [instruction, setInstructionText] = useState<string>(STACK_PROMPTS[0])
   const [seed, setSeed] = useState<number | null>(null)
   const robotRef = useRef(robot)
   const catalogRef = useRef<Catalog | null>(null)
@@ -276,7 +278,7 @@ export function usePlayback(canvasRef: RefObject<HTMLCanvasElement | null>) {
       const spec = catalogRef.current?.stack
       if (!spec || robotRef.current !== "stack") return false
       const wanted = text.trim().toLowerCase()
-      if (wanted !== RED && wanted !== GREEN) return false
+      if (!STACK_PROMPTS.includes(wanted as (typeof STACK_PROMPTS)[number])) return false
       const current = spec.clips[clipIndex.current]
       if (current && current.instruction === wanted) {
         frameRef.current = 0

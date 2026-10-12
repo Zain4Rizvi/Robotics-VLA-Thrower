@@ -14,3 +14,7 @@ trs_so_arm100/playground/web/node_modules/
 trs_so_arm100/playground/web/dist/
 frontend/node_modules/
 frontend/dist/
+
+# Local model weights
+trs_so_arm100/camera_text/init/model.safetensors
+trs_so_arm100/connector/init/model.safetensors

@@ -15,7 +15,7 @@ export function Flow({
   onOpen: (id: BlockId) => void
 }) {
   return (
-    <div className="flex h-full min-h-[28rem] flex-col gap-3 px-5 py-3 lg:px-7">
+    <div className="flex h-full min-h-0 flex-col gap-3 overflow-hidden px-5 py-3 lg:px-7">
       <div className="flex shrink-0 items-end justify-between gap-4">
         <div>
           <h1 className="font-serif text-2xl tracking-tight">SmolVLA</h1>
@@ -28,10 +28,10 @@ export function Flow({
         </p>
       </div>
 
-      <div className="grid min-h-0 flex-1 grid-cols-[10.5rem_4.25rem_minmax(0,1fr)_5.25rem] items-stretch gap-2 lg:gap-3">
+      <div className="grid min-h-0 min-w-0 flex-1 grid-cols-[8.5rem_3rem_minmax(0,1fr)_4.25rem] items-stretch gap-2 xl:grid-cols-[8.5rem_3rem_minmax(0,1fr)_minmax(0,1fr)_4.25rem] lg:gap-3">
         <Inputs instruction={instruction} onOpen={onOpen} />
         <Tokens onOpen={onOpen} />
-        <div className="flex min-h-0 min-w-0 flex-col gap-2">
+        <div className="flex min-h-0 min-w-0 flex-col gap-2 xl:contents">
           <Panel id="language" count="16" title="SmolVLM" tone="cool" onOpen={onOpen} />
           <Panel id="expert" count="16" title="Action expert" tone="warm" tokens onOpen={onOpen} />
         </div>
@@ -142,11 +142,9 @@ function Panel({
       <span className="absolute top-0 left-1/2 -translate-x-1/2 bg-background px-2 font-mono text-[11px] text-foreground">
         {count}
       </span>
-      <span className="flex min-h-0 flex-1 items-center justify-around gap-1">
-        <Block labels={labels} />
-        <Block labels={labels} className="hidden xl:flex" />
-        <span className="shrink-0 font-mono text-base tracking-[0.25em] text-muted-foreground">···</span>
+      <span className="flex min-h-0 flex-1 items-stretch justify-center gap-4 px-2">
         <Block labels={labels} cells={tokens ? crossHeat : undefined} />
+        <span className="flex shrink-0 items-center font-mono text-xl tracking-[0.35em] text-muted-foreground">···</span>
       </span>
       <span className={`shrink-0 text-center font-mono text-[11px] tracking-[0.18em] uppercase ${ink}`}>{title}</span>
     </button>
@@ -163,21 +161,21 @@ function Block({
   className?: string
 }) {
   return (
-    <span className={`min-w-0 flex-col items-center justify-center gap-1 ${className || "flex"}`}>
+    <span className={`flex h-full min-h-0 min-w-0 flex-1 flex-col items-center justify-center gap-1.5 [container-type:size] ${className}`}>
       {labels && (
-        <span className="flex gap-1.5">
+        <span className="flex gap-2">
           {labels.map((label) => (
-            <span key={label} className="font-mono text-[8px] text-muted-foreground">
+            <span key={label} className="font-mono text-[10px] text-muted-foreground">
               {label}
             </span>
           ))}
         </span>
       )}
-      <span className="flex items-center gap-1.5">
+      <span className="model-pair flex h-full min-h-0 w-full flex-1 flex-row items-center justify-center gap-3">
         <Heat cells={cells ?? selfHeat} />
         <Mlp />
       </span>
-      <span className="font-mono text-[8px] tracking-[0.14em] text-muted-foreground uppercase">Transformer block</span>
+      <span className="font-mono text-[10px] tracking-[0.14em] text-muted-foreground uppercase">Transformer block</span>
     </span>
   )
 }
@@ -187,7 +185,7 @@ const crossHeat = [0.8, 0.9, 0.7, 0.4, 0.55, 0.35, 0.75, 0.85, 0.6, 0.45, 0.3, 0
 
 function Heat({ cells }: { cells: number[] }) {
   return (
-    <span className="grid h-16 w-11 grid-cols-4 grid-rows-6 gap-px sm:h-20" aria-hidden="true">
+    <span className="model-heat grid aspect-[11/16] h-[min(86cqh,calc(46cqw*16/11))] w-auto max-w-full grid-cols-4 grid-rows-6 gap-[3px]" aria-hidden="true">
       {cells.map((value, index) => (
         <span key={index} style={{ background: magenta, opacity: 0.12 + value * 0.88 }} />
       ))}
@@ -214,7 +212,7 @@ function Mlp() {
     }
   }
   return (
-    <svg viewBox="0 0 82 88" className="h-16 w-14 sm:h-20" aria-hidden="true">
+    <svg viewBox="0 0 82 88" className="model-mlp aspect-[82/88] h-[min(86cqh,calc(52cqw*88/82))] w-auto max-w-full" aria-hidden="true">
       {edges.map((edge, index) => (
         <line key={index} {...edge} stroke={cream} strokeWidth="0.45" opacity="0.55" />
       ))}
@@ -231,7 +229,7 @@ function Output() {
       <span className="text-lg text-muted-foreground" aria-hidden="true">
         →
       </span>
-      <div className="h-9 w-full bg-[linear-gradient(#5eead4_0_34%,#a3e635_34%_66%,#facc15_66%)]" />
+      <div className="h-[clamp(5rem,22vh,8rem)] w-full bg-[linear-gradient(#5eead4_0_34%,#a3e635_34%_66%,#facc15_66%)]" />
       <p className="text-center font-mono text-[10px] tracking-[0.16em] uppercase">Actions</p>
       <p className="text-center text-[11px] leading-snug text-muted-foreground">50 × 6</p>
     </div>
