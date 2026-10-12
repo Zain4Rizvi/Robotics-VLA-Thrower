@@ -51,10 +51,17 @@ function Inputs({
   return (
     <div className="flex min-h-0 flex-col gap-2">
       <p className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">Image encoders</p>
-      <button type="button" onClick={() => onOpen("vision")} className="flex min-h-0 flex-1 flex-col gap-1.5 text-left">
+      <button
+        type="button"
+        onClick={() => onOpen("vision")}
+        className="flex min-h-0 flex-1 flex-col gap-1.5 rounded-md border border-sky-400/70 px-1.5 pt-1.5 pb-2 text-left hover:border-sky-300 hover:bg-sky-400/10"
+      >
         <Camera feed={0} />
         <Camera feed={1} />
-        <span className="font-mono text-[10px] tracking-[0.14em] text-sky-300/90 uppercase">SigLIP · 12 × 768</span>
+        <span className="flex items-center justify-between gap-2">
+          <span className="font-mono text-[10px] tracking-[0.14em] text-sky-200 uppercase">SigLIP · 12 × 768</span>
+          <span className="font-mono text-[10px] tracking-[0.14em] text-sky-200 uppercase">Open</span>
+        </span>
       </button>
       <p className="line-clamp-2 font-serif text-[15px] leading-snug">{instruction || "Waiting for the instruction"}</p>
       <Strip label="State" note="32-wide, one token" bar="bg-[linear-gradient(90deg,#f0a8a0_0_38%,#f0a8a066_38%_70%,#f0a8a028_70%)]" />

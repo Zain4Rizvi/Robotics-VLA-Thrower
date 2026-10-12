@@ -3,6 +3,7 @@ import gsap from "gsap"
 import { useEffect, useRef, useState } from "react"
 
 import { AttentionPlate } from "@/model/AttentionPlate"
+import { RedPatch } from "@/model/RedPatch"
 import { blocks, layerCount, layerKind, type BlockId } from "@/model/facts"
 import { Flow } from "@/model/Flow"
 import { LayerStack } from "@/model/LayerStack"
@@ -67,7 +68,7 @@ export function ModelView({ instruction }: { instruction: string }) {
           <Flow
             instruction={instruction}
             onOpen={(id) => {
-              setLayer(0)
+              setLayer(id === "vision" ? 8 : 0)
               setBlock(id)
             }}
           />
@@ -105,15 +106,28 @@ function Detail({
       {count === 0 ? (
         <Connector />
       ) : (
-        <div className="grid min-h-[36rem] flex-1 gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
-          <div data-model className="flex min-h-[32rem] flex-col border border-border">
+        <div
+          className={cn(
+            "grid flex-1 gap-8",
+            block === "vision" ? "lg:grid-cols-1" : "min-h-[36rem] lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]",
+          )}
+        >
+          <div
+            data-model
+            className={cn(
+              "flex flex-col border border-border",
+              block === "vision" ? "order-2" : "min-h-[32rem]",
+            )}
+          >
             <div className="flex items-center justify-between px-4 py-3">
               <p className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
                 Layer {layer + 1} of {count}
               </p>
-              <p className="text-[13px] text-muted-foreground">{layerKind(block, layer)}</p>
+              <p className="text-[13px] text-muted-foreground">
+                {block === "vision" ? "Updates the picture above" : layerKind(block, layer)}
+              </p>
             </div>
-            <LayerStack count={count} selected={layer} onSelect={onLayer} />
+            <LayerStack count={count} selected={layer} onSelect={onLayer} compact={block === "vision"} />
             <div className="flex gap-1 overflow-x-auto px-4 py-3" role="listbox" aria-label="Layers">
               {Array.from({ length: count }, (_, index) => (
                 <button
@@ -132,8 +146,8 @@ function Detail({
               ))}
             </div>
           </div>
-          <div data-model className="min-w-0 border border-border p-5">
-            <AttentionPlate block={block} layer={layer} />
+          <div data-model className={cn("min-w-0 border border-border p-5", block === "vision" && "order-1")}>
+            {block === "vision" ? <RedPatch layer={layer} /> : <AttentionPlate block={block} layer={layer} />}
           </div>
         </div>
       )}

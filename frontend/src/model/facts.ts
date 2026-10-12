@@ -35,7 +35,7 @@ export function plate(block: BlockId, layer: number): {
       rows: labels,
       cols: labels,
       on: () => true,
-      note: "Each camera is 1024 patches. They attend to each other. This 8×8 is a stand-in for that block.",
+      note: "Each camera is 1024 patches. They attend to each other.",
     }
   }
   if (block === "language") {

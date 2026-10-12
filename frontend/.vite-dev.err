@@ -1,0 +1,265 @@
+1:26:17 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+1:26:17 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+5:57:23 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+5:57:23 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+5:57:32 AM [vite] (client) [console.warn] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+5:59:53 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+5:59:53 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:00:00 AM [vite] (client) [console.warn] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+6:00:03 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:00:08 AM [vite] (client) [console.warn] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+6:01:36 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:01:36 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:01:39 AM [vite] (client) [console.warn] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+6:01:52 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:01:52 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:01:53 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of null (reading 'useRef')
+ > exports.useRef ../../../../../node_modules/.vite/deps/react.js?v=ec22fa8c:766:30
+ > ProcessView src/process/ProcessView.tsx:6:15
+    4  |  
+    5  |  export function ProcessView() {
+    6  |    const root = useRef<HTMLDivElement>(null)
+       |                 ^
+    7  |    const [active, setActive] = useState(runs[0].id)
+    8  |  
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:28571:19
+ > renderWithHooks node_modules/react-dom/cjs/react-dom-client.development.js:8030:21
+ > updateFunctionComponent node_modules/react-dom/cjs/react-dom-client.development.js:10569:18
+ > beginWork node_modules/react-dom/cjs/react-dom-client.development.js:12147:34
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:1045:29
+ > performUnitOfWork node_modules/react-dom/cjs/react-dom-client.development.js:19176:21
+ > workLoopSync node_modules/react-dom/cjs/react-dom-client.development.js:19004:40
+ > renderRootSync node_modules/react-dom/cjs/react-dom-client.development.js:18985:10
+
+6:01:53 AM [vite] (client) [console.warn] An error occurred in the <ProcessView> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+6:09:22 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:09:22 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:09:24 AM [vite] (client) [console.warn] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+6:09:36 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:09:36 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:09:41 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:09:42 AM [vite] (client) [console.warn] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+6:10:55 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:10:59 AM [vite] (client) [console.warn] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+6:11:01 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:11:02 AM [vite] (client) [console.warn] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+6:11:02 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:11:04 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:11:04 AM [vite] (client) [console.warn] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+6:11:05 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:13:53 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:13:53 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:14:01 AM [vite] (client) [console.warn] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+6:14:52 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:14:52 AM [vite] (client) [console.warn] GSAP target [data-model] not found. https://gsap.com
+6:14:58 AM [vite] (client) [console.warn] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+6:15:18 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:15:18 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:15:18 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of null (reading 'useState')
+ > exports.useState ../../../../../node_modules/.vite/deps/react.js?v=ec22fa8c:769:30
+ > usePlayback src/use-playback.ts:64:28
+    62 |  
+    63 |  export function usePlayback(canvasRef: RefObject<HTMLCanvasElement | null>) {
+    64 |    const [robot, setRobot] = useState<RobotId>("stack")
+       |                              ^
+    65 |    const [ready, setReady] = useState(false)
+    66 |    const [message, setMessage] = useState("Loading")
+ > App src/App.tsx:70:4
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:28571:19
+ > renderWithHooks node_modules/react-dom/cjs/react-dom-client.development.js:8030:21
+ > updateFunctionComponent node_modules/react-dom/cjs/react-dom-client.development.js:10569:18
+ > beginWork node_modules/react-dom/cjs/react-dom-client.development.js:12205:17
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:1045:29
+ > performUnitOfWork node_modules/react-dom/cjs/react-dom-client.development.js:19176:21
+ > workLoopSync node_modules/react-dom/cjs/react-dom-client.development.js:19004:40
+
+6:15:18 AM [vite] (client) [console.warn] An error occurred in the <App> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+6:15:19 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:15:19 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:15:19 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of null (reading 'useRef')
+ > exports.useRef node_modules/react/cjs/react.development.js:1306:33
+ > App src/App.tsx:63:15
+    61 |  
+    62 |  export default function App() {
+    63 |    const root = useRef<HTMLDivElement>(null)
+       |                 ^
+    64 |    const canvasRef = useRef<HTMLCanvasElement>(null)
+    65 |    const revealed = useRef(false)
+ > Object.react_stack_bottom_frame ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:13895:12
+ > renderWithHooks ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:4153:19
+ > updateFunctionComponent ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:5528:16
+ > beginWork ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:6144:20
+ > runWithFiberInDEV ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:697:66
+ > performUnitOfWork ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:8901:92
+ > workLoopSync ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:8797:37
+ > renderRootSync ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:8781:6
+
+6:15:19 AM [vite] (client) [console.warn] An error occurred in the <App> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+6:15:19 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:15:19 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:15:19 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of null (reading 'useState')
+ > exports.useState ../../../../../node_modules/.vite/deps/react.js?v=ec22fa8c:769:30
+ > usePlayback src/use-playback.ts:64:28
+    62 |  
+    63 |  export function usePlayback(canvasRef: RefObject<HTMLCanvasElement | null>) {
+    64 |    const [robot, setRobot] = useState<RobotId>("stack")
+       |                              ^
+    65 |    const [ready, setReady] = useState(false)
+    66 |    const [message, setMessage] = useState("Loading")
+ > App src/App.tsx:70:4
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:28571:19
+ > renderWithHooks node_modules/react-dom/cjs/react-dom-client.development.js:8030:21
+ > updateFunctionComponent node_modules/react-dom/cjs/react-dom-client.development.js:10569:18
+ > beginWork node_modules/react-dom/cjs/react-dom-client.development.js:12205:17
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:1045:29
+ > performUnitOfWork node_modules/react-dom/cjs/react-dom-client.development.js:19176:21
+ > workLoopSync node_modules/react-dom/cjs/react-dom-client.development.js:19004:40
+
+6:15:19 AM [vite] (client) [console.warn] An error occurred in the <App> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+6:15:20 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:15:20 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:15:20 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of null (reading 'useState')
+ > exports.useState ../../../../../node_modules/.vite/deps/react.js?v=ec22fa8c:769:30
+ > usePlayback src/use-playback.ts:64:28
+    62 |  
+    63 |  export function usePlayback(canvasRef: RefObject<HTMLCanvasElement | null>) {
+    64 |    const [robot, setRobot] = useState<RobotId>("stack")
+       |                              ^
+    65 |    const [ready, setReady] = useState(false)
+    66 |    const [message, setMessage] = useState("Loading")
+ > App src/App.tsx:70:4
+ > Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:28571:19
+ > renderWithHooks node_modules/react-dom/cjs/react-dom-client.development.js:8030:21
+ > updateFunctionComponent node_modules/react-dom/cjs/react-dom-client.development.js:10569:18
+ > beginWork node_modules/react-dom/cjs/react-dom-client.development.js:12205:17
+ > runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:1045:29
+ > performUnitOfWork node_modules/react-dom/cjs/react-dom-client.development.js:19176:21
+ > workLoopSync node_modules/react-dom/cjs/react-dom-client.development.js:19004:40
+
+6:15:20 AM [vite] (client) [console.warn] An error occurred in the <App> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+6:15:22 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:15:22 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:15:22 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of null (reading 'useRef')
+ > exports.useRef node_modules/react/cjs/react.development.js:1306:33
+ > App src/App.tsx:63:15
+    61 |  
+    62 |  export default function App() {
+    63 |    const root = useRef<HTMLDivElement>(null)
+       |                 ^
+    64 |    const canvasRef = useRef<HTMLCanvasElement>(null)
+    65 |    const revealed = useRef(false)
+ > Object.react_stack_bottom_frame ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:13895:12
+ > renderWithHooks ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:4153:19
+ > updateFunctionComponent ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:5528:16
+ > beginWork ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:6144:20
+ > runWithFiberInDEV ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:697:66
+ > performUnitOfWork ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:8901:92
+ > workLoopSync ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:8797:37
+ > renderRootSync ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:8781:6
+
+6:15:22 AM [vite] (client) [console.warn] An error occurred in the <App> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+
+6:15:22 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:15:22 AM [vite] (client) [console.error] Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+6:15:22 AM [vite] (client) [Unhandled error] TypeError: Cannot read properties of null (reading 'useRef')
+ > exports.useRef node_modules/react/cjs/react.development.js:1306:33
+ > App src/App.tsx:63:15
+    61 |  
+    62 |  export default function App() {
+    63 |    const root = useRef<HTMLDivElement>(null)
+       |                 ^
+    64 |    const canvasRef = useRef<HTMLCanvasElement>(null)
+    65 |    const revealed = useRef(false)
+ > Object.react_stack_bottom_frame ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:13895:12
+ > renderWithHooks ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:4153:19
+ > updateFunctionComponent ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:5528:16
+ > beginWork ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:6144:20
+ > runWithFiberInDEV ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:697:66
+ > performUnitOfWork ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:8901:92
+ > workLoopSync ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:8797:37
+ > renderRootSync ../../../../../node_modules/.vite/deps/react-dom_client.js?v=ec22fa8c:8781:6
+
+6:15:22 AM [vite] (client) [console.warn] An error occurred in the <App> component.
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+

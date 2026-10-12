@@ -2,6 +2,8 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { useEffect, useMemo, useRef, type RefObject } from "react"
 import * as THREE from "three"
 
+import { cn } from "@/lib/utils"
+
 const bone = new THREE.Color("#f4f0e8")
 const dim = new THREE.Color("#a39e94")
 
@@ -84,10 +86,12 @@ export function LayerStack({
   count,
   selected,
   onSelect,
+  compact = false,
 }: {
   count: number
   selected: number
   onSelect: (index: number) => void
+  compact?: boolean
 }) {
   const yaw = useRef(0.62)
   const drag = useRef<{ x: number; yaw: number } | null>(null)
@@ -95,7 +99,10 @@ export function LayerStack({
 
   return (
     <div
-      className="relative min-h-[28rem] flex-1 cursor-grab touch-none active:cursor-grabbing"
+      className={cn(
+        "relative flex-1 cursor-grab touch-none active:cursor-grabbing",
+        compact ? "h-48 min-h-0" : "min-h-[28rem]",
+      )}
       onPointerDown={(event) => {
         drag.current = { x: event.clientX, yaw: yaw.current }
         moved.current = false
