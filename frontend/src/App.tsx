@@ -9,6 +9,7 @@ import { STACK_PROMPTS, usePlayback, type RobotId } from "@/use-playback"
 
 const ModelView = lazy(() => import("@/model/ModelView").then((mod) => ({ default: mod.ModelView })))
 const ExpertView = lazy(() => import("@/model/ExpertView").then((mod) => ({ default: mod.ExpertView })))
+const ProcessView = lazy(() => import("@/process/ProcessView").then((mod) => ({ default: mod.ProcessView })))
 
 const ROBOTS = [
   { id: "stack", title: "SO-ARM100", subtitle: "Red on green" },
@@ -64,9 +65,14 @@ export default function App() {
   const revealed = useRef(false)
   const revealHero = useRef<() => void>(() => {})
   const drag = useRef<{ id: number; x: number; y: number; button: number } | null>(null)
-  const [page, setPage] = useState<"scene" | "model">("scene")
+  const [page, setPage] = useState<"scene" | "model" | "process">("scene")
   const { robot, ready, message, instruction, seed, selectRobot, submitInstruction, nextLayout, nudge } =
     usePlayback(canvasRef)
+
+  function chooseRobot(id: RobotId) {
+    if (id !== "stack") setPage((current) => (current === "process" ? "scene" : current))
+    selectRobot(id)
+  }
 
   useGSAP(
     () => {
@@ -241,6 +247,16 @@ export default function App() {
           >
             Model
           </button>
+          {robot === "stack" && (
+            <button
+              type="button"
+              aria-current={page === "process" ? "page" : undefined}
+              className={page === "process" ? "text-foreground" : "text-muted-foreground hover:text-foreground"}
+              onClick={() => setPage("process")}
+            >
+              Process
+            </button>
+          )}
         </nav>
         <div className="flex flex-col items-end gap-5">
           <div className="flex items-center gap-3 font-mono text-[11px] tracking-wide text-muted-foreground">
@@ -268,12 +284,23 @@ export default function App() {
             type="button"
             aria-current={robot === item.id ? "true" : undefined}
             className={robot === item.id ? "text-foreground" : "text-muted-foreground hover:text-foreground"}
-            onClick={() => selectRobot(item.id)}
+            onClick={() => chooseRobot(item.id)}
           >
             {item.title}
           </button>
         ))}
       </nav>
+      {page === "process" && robot === "stack" && (
+        <Suspense
+          fallback={
+            <p className="absolute inset-0 z-20 flex items-center justify-center bg-background font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase">
+              Opening
+            </p>
+          }
+        >
+          <ProcessView />
+        </Suspense>
+      )}
       {page === "model" && (
         <Suspense
           fallback={
