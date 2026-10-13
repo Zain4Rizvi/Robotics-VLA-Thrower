@@ -2,6 +2,8 @@ import * as THREE from "three"
 
 import type { MainModule, MjData, MjModel, MjvCamera } from "@mujoco/mujoco"
 
+import { packingCell, partTexture } from "@/packing-cell"
+
 const PLANE = 0
 const SPHERE = 2
 const CAPSULE = 3
@@ -11,6 +13,11 @@ const BOX = 6
 const MESH = 7
 
 type GeomMesh = { id: number; mesh: THREE.Mesh }
+
+const BOX_FACES = [
+  { name: "red_box", label: "COVER", body: "#c4322a", panel: "#6e1c16" },
+  { name: "green_box", label: "BASE", body: "#1f8a3b", panel: "#143322" },
+] as const
 
 function checkerTexture() {
   const canvas = document.createElement("canvas")
@@ -132,9 +139,13 @@ export class SceneView {
   private readonly floor: THREE.Texture | null
   private model: MjModel | null = null
   private data: MjData | null = null
+  private cell: THREE.Group | null = null
+  private readonly boxFaces = new Map<string, THREE.CanvasTexture>()
+  private readonly sky = new THREE.Color("#6d8ea3")
+  private readonly room = new THREE.Color("#c4b8a8")
 
   constructor(canvas: HTMLCanvasElement) {
-    this.scene.background = new THREE.Color("#6d8ea3")
+    this.scene.background = this.sky
     this.floor = checkerTexture()
     this.scene.add(new THREE.AmbientLight("#ffffff", 0.72))
     const sun = new THREE.DirectionalLight("#ffffff", 1.15)
@@ -224,6 +235,36 @@ export class SceneView {
     this.hero.render(this.scene, this.freeCam)
   }
 
+  setCell(on: boolean) {
+    if (on && !this.cell) {
+      this.cell = packingCell()
+      this.scene.add(this.cell)
+    }
+    if (this.cell) this.cell.visible = on
+    this.scene.background = on ? this.room : this.sky
+    for (const item of this.geoms) {
+      if (item.mesh.geometry.type === "PlaneGeometry") item.mesh.visible = !on
+    }
+  }
+
+  faceBoxes(nameOf: (name: string) => number) {
+    for (const face of BOX_FACES) {
+      const item = this.geoms.find((geom) => geom.id === nameOf(face.name))
+      if (!item) continue
+      let map = this.boxFaces.get(face.name)
+      if (!map) {
+        const next = partTexture(face.label, face.body, face.panel)
+        if (!next) continue
+        map = next
+        this.boxFaces.set(face.name, map)
+      }
+      const material = item.mesh.material as THREE.MeshStandardMaterial
+      material.map = map
+      material.color.setRGB(1, 1, 1)
+      material.needsUpdate = true
+    }
+  }
+
   paintColors(model: MjModel, rows: { name: string; rgba: number[] }[], nameOf: (name: string) => number) {
     const rgba = model.geom_rgba as ArrayLike<number> & { [index: number]: number }
     const matIds = model.geom_matid as ArrayLike<number>
@@ -298,6 +339,18 @@ export class SceneView {
 
   dispose() {
     this.clear()
+    if (this.cell) {
+      this.scene.remove(this.cell)
+      this.cell.traverse((obj) => {
+        const mesh = obj as THREE.Mesh
+        mesh.geometry?.dispose()
+        const material = mesh.material as THREE.Material | undefined
+        material?.dispose()
+      })
+      this.cell = null
+    }
+    for (const map of this.boxFaces.values()) map.dispose()
+    this.boxFaces.clear()
     this.floor?.dispose()
     this.hero.dispose()
     this.inset?.dispose()

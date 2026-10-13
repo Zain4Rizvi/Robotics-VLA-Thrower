@@ -18,7 +18,7 @@ const ROBOTS = [
 ] as const
 
 const CAMERAS: Record<RobotId, [string, string]> = {
-  stack: ["camera1", "camera2"],
+  stack: ["Overhead", "Wrist"],
   openarm: ["headcam", "camera_wrist_right"],
   peg: ["tablecam", "camera_wrist_right"],
 }
@@ -26,7 +26,7 @@ const CAMERAS: Record<RobotId, [string, string]> = {
 const NOTES: Record<RobotId, { label: string; body: string }> = {
   stack: {
     label: "Vision-language-action",
-    body: "Determines movement given only camera and text",
+    body: "The policy is shown the cameras and the ticket, the same inputs a person would get, and is not given where the items are.",
   },
   openarm: {
     label: "Scripted expert",
@@ -108,12 +108,9 @@ export default function App() {
   const selected = ROBOTS.find((item) => item.id === robot) ?? ROBOTS[0]
   const cameras = CAMERAS[robot]
   const note = NOTES[robot]
-  const subtitle =
-    robot === "stack"
-      ? instruction === STACK_PROMPTS[1]
-        ? "Green on red"
-        : "Red on green"
-      : selected.subtitle
+  const subtitle = robot === "stack" ? "Assembly" : selected.subtitle
+  const orderLine =
+    instruction === STACK_PROMPTS[1] ? "Next: green base on the red cover" : "Next: red cover on the green base"
 
   function onPointerDown(event: ReactPointerEvent<HTMLDivElement>) {
     if (event.button !== 0 && event.button !== 2) return
@@ -166,6 +163,16 @@ export default function App() {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-background/80 to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background/50 to-transparent" />
 
+        {robot === "stack" && (
+          <aside className="pointer-events-none absolute top-64 right-7 z-40 w-56 bg-[#f4efe4] px-4 py-3 text-[#1c140e] shadow-md">
+            <p className="font-mono text-[10px] tracking-[0.16em] uppercase">Build 1842</p>
+            <p className="mt-2 text-[12px] leading-snug text-[#1c140e]/60">Build in progress.</p>
+            <p className="mt-1 font-serif text-[17px] leading-snug">{orderLine}</p>
+            <p className="mt-3 text-[12px] leading-snug">Given: overhead camera, wrist camera, this ticket.</p>
+            <p className="mt-1 text-[12px] leading-snug">Not given: item positions, a model of the product.</p>
+          </aside>
+        )}
+
         {!ready && (
           <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center px-6">
             <p className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase">
@@ -197,7 +204,7 @@ export default function App() {
                   aria-pressed={instruction === text}
                   onClick={() => submitInstruction(text)}
                 >
-                  {text}
+                  {text === STACK_PROMPTS[0] ? "Red cover next" : "Green base next"}
                 </Button>
               ))}
               <Button
@@ -207,7 +214,7 @@ export default function App() {
                 disabled={!ready}
                 onClick={nextLayout}
               >
-                New layout
+                New placement
               </Button>
             </div>
           ) : (

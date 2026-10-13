@@ -155,6 +155,9 @@ export function usePlayback(canvasRef: RefObject<HTMLCanvasElement | null>, acti
       writeArray(bodyQuat, id, body.quat, 4)
     }
     viewRef.current?.paintColors(model, clip.rgba, (name) => mj.mj_name2id(model, mj.mjtObj.mjOBJ_GEOM.value, name))
+    if (robotRef.current === "stack") {
+      viewRef.current?.faceBoxes((name) => mj.mj_name2id(model, mj.mjtObj.mjOBJ_GEOM.value, name))
+    }
     setInstructionText(clip.instruction)
     setSeed(clip.seed)
   }, [])
@@ -247,6 +250,7 @@ export function usePlayback(canvasRef: RefObject<HTMLCanvasElement | null>, acti
         if (dead || robotRef.current !== id) return
         tapeRef.current = null
         view.mount(id, held.model, held.data)
+        view.setCell(id === "stack")
         runtimeRef.current = held
         const { model, cam } = held
         nudgeRef.current = (action, dx, dy) => {
