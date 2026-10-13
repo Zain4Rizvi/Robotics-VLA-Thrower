@@ -86,11 +86,13 @@ export function LayerStack({
   count,
   selected,
   onSelect,
+  live = true,
   compact = false,
 }: {
   count: number
   selected: number
   onSelect: (index: number) => void
+  live?: boolean
   compact?: boolean
 }) {
   const yaw = useRef(0.62)
@@ -122,7 +124,7 @@ export function LayerStack({
         window.addEventListener("pointerup", up)
       }}
     >
-      <Canvas camera={{ position: [1.15, 0.55, 4.4], fov: 26 }} gl={{ alpha: true, antialias: true }}>
+      <Canvas frameloop={live ? "always" : "never"} camera={{ position: [1.15, 0.55, 4.4], fov: 26 }} gl={{ alpha: true, antialias: true }}>
         <ambientLight intensity={1.1} />
         <directionalLight position={[4, 5, 3]} intensity={1.6} />
         <Slabs

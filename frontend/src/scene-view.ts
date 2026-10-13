@@ -125,9 +125,10 @@ export class SceneView {
   readonly freeCam = new THREE.PerspectiveCamera(45, 1, 0.01, 50)
   readonly fixedCam = new THREE.PerspectiveCamera(45, 4 / 3, 0.01, 50)
   private readonly hero: THREE.WebGLRenderer
-  private readonly inset: THREE.WebGLRenderer
+  private inset: THREE.WebGLRenderer | null = null
   private readonly insetCanvas = document.createElement("canvas")
-  private readonly geoms: GeomMesh[] = []
+  private geoms: GeomMesh[] = []
+  private readonly layers = new Map<string, { group: THREE.Group; geoms: GeomMesh[] }>()
   private readonly floor: THREE.Texture | null
   private model: MjModel | null = null
   private data: MjData | null = null
@@ -139,22 +140,23 @@ export class SceneView {
     const sun = new THREE.DirectionalLight("#ffffff", 1.15)
     sun.position.set(0.6, -1.1, 2.2)
     this.scene.add(sun)
-    this.hero = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false })
+    this.hero = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false })
     this.hero.outputColorSpace = THREE.SRGBColorSpace
     this.hero.toneMapping = THREE.NoToneMapping
-    this.hero.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5))
-    this.insetCanvas.width = 256
-    this.insetCanvas.height = 192
-    this.inset = new THREE.WebGLRenderer({ canvas: this.insetCanvas, antialias: true, alpha: false })
-    this.inset.outputColorSpace = THREE.SRGBColorSpace
-    this.inset.toneMapping = THREE.NoToneMapping
-    this.inset.setSize(256, 192, false)
+    this.hero.setPixelRatio(1)
     }
 
-  mount(model: MjModel, data: MjData) {
-    this.clear()
-    this.model = model
-    this.data = data
+  mount(key: string, model: MjModel, data: MjData) {
+    const existing = this.layers.get(key)
+    if (existing) {
+      this.use(key, model, data, existing.geoms)
+      return
+    }
+    const group = new THREE.Group()
+    const geoms: GeomMesh[] = []
+    this.scene.add(group)
+    this.layers.set(key, { group, geoms })
+    this.use(key, model, data, geoms)
     const types = model.geom_type as ArrayLike<number>
     const groups = model.geom_group as ArrayLike<number>
     const sizes = model.geom_size as ArrayLike<number>
@@ -182,9 +184,16 @@ export class SceneView {
       const mesh = new THREE.Mesh(geometry, material)
       mesh.matrixAutoUpdate = false
       mesh.frustumCulled = false
-      this.scene.add(mesh)
-      this.geoms.push({ id, mesh })
+      group.add(mesh)
+      geoms.push({ id, mesh })
     }
+  }
+
+  private use(key: string, model: MjModel, data: MjData, geoms: GeomMesh[]) {
+    for (const [id, layer] of this.layers) layer.group.visible = id === key
+    this.model = model
+    this.data = data
+    this.geoms = geoms
   }
 
   resize(width: number, height: number) {
@@ -256,18 +265,33 @@ export class SceneView {
     this.fixedCam.lookAt(x - Number(xmat[r + 2]), y - Number(xmat[r + 5]), z - Number(xmat[r + 8]))
     this.fixedCam.fov = Number(model.cam_fovy[id]) || 55
     this.fixedCam.updateProjectionMatrix()
-    this.inset.render(this.scene, this.fixedCam)
+    const inset = this.inset ?? this.openInset()
+    inset.render(this.scene, this.fixedCam)
     return this.insetCanvas
   }
 
+  private openInset() {
+    this.insetCanvas.width = 256
+    this.insetCanvas.height = 192
+    const inset = new THREE.WebGLRenderer({ canvas: this.insetCanvas, antialias: false, alpha: false })
+    inset.outputColorSpace = THREE.SRGBColorSpace
+    inset.toneMapping = THREE.NoToneMapping
+    inset.setSize(256, 192, false)
+    this.inset = inset
+    return inset
+  }
+
   clear() {
-    for (const item of this.geoms) {
-      this.scene.remove(item.mesh)
-      item.mesh.geometry.dispose()
-      const material = item.mesh.material as THREE.MeshStandardMaterial
-      material.dispose()
+    for (const layer of this.layers.values()) {
+      this.scene.remove(layer.group)
+      for (const item of layer.geoms) {
+        item.mesh.geometry.dispose()
+        const material = item.mesh.material as THREE.MeshStandardMaterial
+        material.dispose()
+      }
     }
-    this.geoms.length = 0
+    this.layers.clear()
+    this.geoms = []
     this.model = null
     this.data = null
   }
@@ -276,6 +300,6 @@ export class SceneView {
     this.clear()
     this.floor?.dispose()
     this.hero.dispose()
-    this.inset.dispose()
+    this.inset?.dispose()
   }
 }

@@ -66,12 +66,19 @@ export default function App() {
   const revealHero = useRef<() => void>(() => {})
   const drag = useRef<{ id: number; x: number; y: number; button: number } | null>(null)
   const [page, setPage] = useState<"scene" | "model" | "process">("scene")
+  const [opened, setOpened] = useState({ model: false, process: false })
   const { robot, ready, message, instruction, seed, selectRobot, submitInstruction, nextLayout, nudge } =
-    usePlayback(canvasRef)
+    usePlayback(canvasRef, page === "scene")
 
   function chooseRobot(id: RobotId) {
     if (id !== "stack") setPage((current) => (current === "process" ? "scene" : current))
     selectRobot(id)
+  }
+
+  function openPage(next: "scene" | "model" | "process") {
+    setPage(next)
+    if (next === "scene") return
+    setOpened((current) => (current[next] ? current : { ...current, [next]: true }))
   }
 
   useGSAP(
@@ -88,12 +95,7 @@ export default function App() {
       revealHero.current = () => {
         if (revealed.current) return
         revealed.current = true
-        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        if (reduce) {
-          gsap.set("[data-hero]", { autoAlpha: 1 })
-          return
-        }
-        gsap.to("[data-hero]", { autoAlpha: 1, duration: 0.5, ease: "power2.out" })
+        gsap.set("[data-hero]", { autoAlpha: 1 })
       }
     },
     { scope: root },
@@ -235,7 +237,7 @@ export default function App() {
             type="button"
             aria-current={page === "scene" ? "page" : undefined}
             className={page === "scene" ? "text-foreground" : "text-muted-foreground hover:text-foreground"}
-            onClick={() => setPage("scene")}
+            onClick={() => openPage("scene")}
           >
             Scene
           </button>
@@ -243,7 +245,7 @@ export default function App() {
             type="button"
             aria-current={page === "model" ? "page" : undefined}
             className={page === "model" ? "text-foreground" : "text-muted-foreground hover:text-foreground"}
-            onClick={() => setPage("model")}
+            onClick={() => openPage("model")}
           >
             Model
           </button>
@@ -252,7 +254,7 @@ export default function App() {
               type="button"
               aria-current={page === "process" ? "page" : undefined}
               className={page === "process" ? "text-foreground" : "text-muted-foreground hover:text-foreground"}
-              onClick={() => setPage("process")}
+              onClick={() => openPage("process")}
             >
               Process
             </button>
@@ -290,31 +292,35 @@ export default function App() {
           </button>
         ))}
       </nav>
-      {page === "process" && robot === "stack" && (
-        <Suspense
-          fallback={
-            <p className="absolute inset-0 z-20 flex items-center justify-center bg-background font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase">
-              Opening
-            </p>
-          }
-        >
-          <ProcessView />
-        </Suspense>
+      {(page === "process" || opened.process) && (
+        <div hidden={page !== "process" || robot !== "stack"} className={page === "process" && robot === "stack" ? "contents" : undefined}>
+          <Suspense
+            fallback={
+              <p className="absolute inset-0 z-20 flex items-center justify-center bg-background font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase">
+                Opening
+              </p>
+            }
+          >
+            <ProcessView />
+          </Suspense>
+        </div>
       )}
-      {page === "model" && (
-        <Suspense
-          fallback={
-            <p className="absolute inset-0 z-20 flex items-center justify-center font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase">
-              Opening
-            </p>
-          }
-        >
-          {robot === "stack" ? (
-            <ModelView instruction={instruction} />
-          ) : (
-            <ExpertView key={robot} robot={robot} instruction={instruction} />
-          )}
-        </Suspense>
+      {(page === "model" || opened.model) && (
+        <div hidden={page !== "model"} className={page === "model" ? "contents" : undefined}>
+          <Suspense
+            fallback={
+              <p className="absolute inset-0 z-20 flex items-center justify-center font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase">
+                Opening
+              </p>
+            }
+          >
+            {robot === "stack" ? (
+              <ModelView instruction={instruction} live={page === "model"} />
+            ) : (
+              <ExpertView key={robot} robot={robot} instruction={instruction} />
+            )}
+          </Suspense>
+        </div>
       )}
     </div>
   )

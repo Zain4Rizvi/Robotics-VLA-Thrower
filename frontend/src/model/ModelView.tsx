@@ -26,7 +26,7 @@ const copy: Record<BlockId, { body: string }> = {
   },
 }
 
-export function ModelView({ instruction }: { instruction: string }) {
+export function ModelView({ instruction, live = true }: { instruction: string; live?: boolean }) {
   const root = useRef<HTMLDivElement>(null)
   const [block, setBlock] = useState<BlockId | null>(null)
   const [layer, setLayer] = useState(0)
@@ -73,7 +73,7 @@ export function ModelView({ instruction }: { instruction: string }) {
             }}
           />
         ) : (
-          <Detail block={block} layer={layer} onLayer={setLayer} />
+          <Detail block={block} layer={layer} live={live} onLayer={setLayer} />
         )}
       </div>
     </div>
@@ -83,10 +83,12 @@ export function ModelView({ instruction }: { instruction: string }) {
 function Detail({
   block,
   layer,
+  live,
   onLayer,
 }: {
   block: BlockId
   layer: number
+  live: boolean
   onLayer: (index: number) => void
 }) {
   const spec = blocks.find((item) => item.id === block)
@@ -116,7 +118,7 @@ function Detail({
                 {block === "vision" ? "Updates the picture above" : layerKind(block, layer)}
               </p>
             </div>
-            <LayerStack count={count} selected={layer} onSelect={onLayer} compact />
+            <LayerStack count={count} selected={layer} onSelect={onLayer} live={live} compact />
             <div className="flex gap-1 overflow-x-auto px-4 py-3" role="listbox" aria-label="Layers">
               {Array.from({ length: count }, (_, index) => (
                 <button
